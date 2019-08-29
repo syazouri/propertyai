@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_203017) do
+ActiveRecord::Schema.define(version: 2019_08_29_192006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2019_08_27_203017) do
     t.index ["area_id"], name: "index_houses_on_area_id"
   end
 
+  create_table "prices", force: :cascade do |t|
+    t.integer "amount"
+    t.string "year"
+    t.bigint "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_id"], name: "index_prices_on_area_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -58,4 +67,5 @@ ActiveRecord::Schema.define(version: 2019_08_27_203017) do
   end
 
   add_foreign_key "houses", "areas"
+  add_foreign_key "prices", "areas"
 end
