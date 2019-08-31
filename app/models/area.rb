@@ -1,3 +1,3 @@
 class Area < ApplicationRecord
-  has_many :house
+  has_many :houses
 end
