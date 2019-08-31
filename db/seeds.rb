@@ -1,30 +1,68 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
+require 'json'
+require 'open-uri'
 
 puts 'Deleteing all data'
-Area.destroy_all
 House.destroy_all
+Search.destroy_all
+Area.destroy_all
 User.destroy_all
 puts 'Data deleted'
+
+puts "Creating ADMIN"
+puts "test@test.com"
+puts "pass: 123456"
+User.create! email: "test@test.com", password: "123456"
+
 puts 'Creating Users, Areas and Houses'
 # images here
 
-5.times do
+AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
+POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
+
+# crime_url = 'https://api.propertydata.co.uk/crime?key=LKWVPEM1HL&postcode=W14+9JH'
+# crime_serialized = open(crime_url).read
+# crime = JSON.parse(crime_serialized)
+
+5.times do |i|
+  crime_url = "https://api.propertydata.co.uk/crime?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  crime = JSON.parse(open(crime_url).read)
+  sleep(2)
+
+  school_url = "https://api.propertydata.co.uk/schools?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  school = JSON.parse(open(school_url).read)
+  sleep(2)
+
+  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}&type=flat&max_age=12"
+  sold_price = JSON.parse(open(sold_price_url).read)
+  sleep(2)
+
+  demographics_url = "https://api.propertydata.co.uk/demand?key=LKWVPEM1HL&postcode=W14=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  demographics = JSON.parse(open(demographics_url).read)
+  sleep(2)
+
+  price_url = "https://api.propertydata.co.uk/prices?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}&bedrooms=2"
+  price = JSON.parse(open(price_url).read)
+  sleep(2)
+
+  growth_url = "https://api.propertydata.co.uk/growth?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  growth = JSON.parse(open(growth_url).read)
+  sleep(2)
+
+  demand_url = "https://api.propertydata.co.uk/demand?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  demand = JSON.parse(open(demand_url).read)
+  sleep(2)
+
   area = Area.new(
-    name:Faker::HarryPotter.character,
-    sold_price: rand(500000..1000000),
-    schools:Faker::HarryPotter,
-    crime:rand(),
-    demographics:rand() ,
-    price:rand(500000..1000000),
-    growth:rand(),
-    demand: rand()
+    name: AREA_NAMES[i],
+    crime: crime,
+    schools: school,
+    sold_price: sold_price,
+    demographics: demographics,
+    price: price,
+    demand: demand,
+    growth: growth
   )
   area.save!
 end
@@ -32,30 +70,58 @@ end
 5.times do
   user = User.new(
     email: Faker::Internet.email,
-    username: Faker::Internet.username,
-    name: Faker::Name.name,
-    password: '123456'
+    password: '123456',
+    first_name: Faker::Name.name,
+    last_name: Faker::Name.last_name,
+    income: rand(39000..95000),
+    credit_score: rand(300.. 850),
+    date_of_birth:Faker::Date.birthday,
+    deposit:rand(10000..30000),
+    borrowing: rand(170050..850250),
   )
   user.save!
   counter = 0
 end
 
-5.times do
+5.times do |i|
+  council_tax_url = "https://api.propertydata.co.uk/council-tax?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  council_tax = JSON.parse(open(council_tax_url).read)
+  sleep(2)
+
+  ptal_url = "https://api.propertydata.co.uk/ptal?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  ptal = JSON.parse(open(ptal_url).read)
+  sleep(2)
+
+  restaurants_url = "https://api.propertydata.co.uk/restaurants?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  restaurants = JSON.parse(open(restaurants_url).read)
+  sleep(2)
+
   house = House.new(
     address: Faker::Address.street_address,
-    postcode: Faker::Address.postcode,
+    postcode: POSTCODE[i],
     bedroom: rand(1..6),
     description: Faker::Lorem.paragraph(sentence_count: 2),
-    rate: rand(150..500),
-    bathroom: rand(10..40),
+    bathroom: rand(1..2),
     square_feet:rand(100..300),
-    council_tax: rand(a,b,c,d,e,f),
-    ptal:rand( 1a, 1b, 2, 3, 4, 5, 6a, 6b),
-    green_belt: rand( true, false),
-    area: Area.all.sample,
-    restaurants:Faker::Restaurant.name
+    council_tax: council_tax,
+    ptal: ptal,
+    green_belt: false, # or we could this instead [true, false].sample,
+    area: Area.all[i],
+    restaurants: restaurants     #Faker::Restaurant.name
   )
+  house.save!
 end
-house.save!
-end
+
+search = Search.new(
+  borrowing: rand(170050..850250),
+  gross_annual: rand(39000..95000),
+  deposit: rand(10000..30000),
+  credit_score: rand(300.. 850),
+  distance_to_work: rand(10..120),
+  school: [true, false].sample,
+  user: User.first,
+  area: Area.all.sample
+)
+search.save!
+
 puts 'Finished!'

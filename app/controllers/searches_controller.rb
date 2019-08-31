@@ -1,12 +1,11 @@
 class SearchController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new]
 
-
-  def index
-    @areas = Area.all
+  def new
   end
 
   def show
+
   end
 
   private
