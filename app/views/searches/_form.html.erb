@@ -1,0 +1,14 @@
+<div class="container">
+  <%= simple_form_for(area) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs h5">
+      <%= f.input :income, placeholder: "e.g. 45000" %>
+    </div>
+    <div class="form-inputs h5">
+    <%= f.input :credit_score, placeholder: "e.g. 750" %>
+    </div>
+    <%= f.button :submit, class: "btn-ghost" %>
+  <% end %>
+  <br>
+</div>
