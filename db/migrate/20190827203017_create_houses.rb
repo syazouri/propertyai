@@ -7,10 +7,10 @@ class CreateHouses < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :bathroom
       t.integer :square_feet
-      t.string :council_tax
-      t.string :ptal
-      t.string :green_belt
-      t.string :restaurants
+      t.jsonb :council_tax
+      t.jsonb :ptal
+      t.boolean :green_belt
+      t.jsonb :restaurants
       t.references :area, foreign_key: true
 
       t.timestamps

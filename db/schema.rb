@@ -10,22 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_08_31_111643) do
- master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "areas", force: :cascade do |t|
     t.string "name"
-    t.integer "sold_price"
-    t.string "schools"
-    t.string "crime"
-    t.string "demographics"
-    t.integer "price"
-    t.string "growth"
-    t.string "demand"
+    t.jsonb "sold_price"
+    t.jsonb "schools"
+    t.jsonb "crime"
+    t.jsonb "demographics"
+    t.jsonb "price"
+    t.jsonb "growth"
+    t.jsonb "demand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,10 +35,10 @@ ActiveRecord::Schema.define(version: 2019_08_31_111643) do
     t.text "description"
     t.integer "bathroom"
     t.integer "square_feet"
-    t.string "council_tax"
-    t.string "ptal"
-    t.string "green_belt"
-    t.string "restaurants"
+    t.jsonb "council_tax"
+    t.jsonb "ptal"
+    t.boolean "green_belt"
+    t.jsonb "restaurants"
     t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_08_31_111643) do
     t.integer "gross_annual"
     t.integer "deposit"
     t.integer "credit_score"
-    t.string "school"
+    t.boolean "school"
     t.integer "distance_to_work"
     t.bigint "area_id"
     t.bigint "user_id"
