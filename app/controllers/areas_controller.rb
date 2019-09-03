@@ -1,6 +1,6 @@
 class AreasController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_area, only: [:show, :edit, :update]
 
   def index
     @areas = Area.all
@@ -13,6 +13,11 @@ class AreasController < ApplicationController
   end
 
   def update
+    if @area.update(area_params)
+      redirect_to area_path(@area), notice: "#{@area.name} was successfully updated."
+    else
+      render :edit
+    end
   end
 
   private

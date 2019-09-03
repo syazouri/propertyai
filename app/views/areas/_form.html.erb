@@ -1,0 +1,32 @@
+<div class="container">
+  <%= simple_form_for(area) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :name %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :price, as: :integer %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :sold_price, as: :integer %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :schools %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :demographics %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :growth %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :demand %>
+    </div>
+
+
+    <div class="form-actions">
+    <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
