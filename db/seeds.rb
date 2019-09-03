@@ -124,4 +124,12 @@ search = Search.new(
 )
 search.save!
 
+price = Price.new(
+  amount:rand(170050..850250),
+  year: rand(2000..2018)
+)
+price.save!
+
+
+
 puts 'Finished!'
