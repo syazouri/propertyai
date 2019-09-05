@@ -1,0 +1,16 @@
+<div class="contain">
+  <h1 id="title">List of Properties</h1>
+
+    <% @houses.each do |house| %>
+    <div class="houses-card">
+       <%= image_tag "logo.png"%>
+        <div class="houses-card-content">
+            <p>Address: <%= house.address%></p>
+            <p>Postcode: <%= house.postcode%></p>
+              <%= link_to 'See Property', houses_show_path(house),class: "btn btn-ghost"%>
+            <br>
+          </div>
+        </div>
+    <% end %>
+</div>
+

@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 id="title">Property Details</h1>
+  <br>
+      <div class= "items">
+        <div class="card-category">
+          <%= image_tag "logo.png" %>
+        </div>
+        <div class="card-category">
+        <br>
+          <ul>
+           <li >
+             <p> Address: <%= @house.address%></p>
+             <p>Postcode: <%= @house.postcode %></p>
+             <p>Bedrooms: £ <%= @house.bedroom %> per day</p>
+             <p> Bathrooms: <%= @house.bathroom%> </p>
+             <p> Description: <%= @house.description%> </p>
+             <p> Square Feet: <%= @house.square_feet%> </p>
+             <p> Council Tax: <%= @house.council_tax%> </p>
+             <p> PTAL: <%= @house.ptal%> </p>
+             <p> Green Belt: <%= @house.green_belt%> </p>
+             <p> Restaurants: <%= @house.restaurants%> </p>
+             </li>
+          </ul>
+          <br>
+      </div>
+    </div>
+    <br>
+</div>
+<br>
+
+
