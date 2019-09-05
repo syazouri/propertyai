@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
   def create
     @search = Search.new(search_params)
     @search.user_id = current_user.id
-    @search.area_id = Area.all.first.id
+    @search.area_id = area_maths
     @search.save
     redirect_to areas_path
   end
@@ -40,44 +40,36 @@ class SearchesController < ApplicationController
 
   end
 
-  def area_maths(values)
+  def area_maths
+    area_name = distance_to_work
+    preferred_area = Area.where(name: area_name)
+    final_area = area_math_deposit(preferred_area)
+    final_area.id
+    # - note to self make the calculation in this area
+    # this will hold all the calculation methods and will set the priority
+  end
 
-    if distance_to_work == rchoice1
-      "recommended EC1Y8ND #{hackney}"
-    elsif area_math_credit
-      recommended = (EC1Y8ND - hackney)
-    else area_math_deposit
-      # - note to self make the calculation in this area
-      # this will hold all the calculation methods and will set the priority
+
+  AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
+  POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
+  def distance_to_work
+    distance_to_work = search_params[:distance_to_work]
+    if distance_to_work < 18
+      AREA_NAMES[3]
+    elsif distance_to_work > 18
+      AREA_NAMES[0]
+    elsif distance_to_work > 25
+      AREA_NAMES[4]
+    elsif distance_to_work > 30
+      AREA_NAMES[2]
+    else distance_to_work > 35
+      AREA_NAMES[1]
     end
 
 
-    AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
-    POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
-    def distance_to_work
-      if distance_to_work < 18
-        rchoice1 = postcode[3]
-      elsif distance_to_work > 18
-        postcode[0]
-      elsif distance_to_work > 25
-        postcode[4]
-      elsif distance_to_work > 30
-        postcode[2]
-      else distance_to_work > 35
-        postcode[1]
-      end
+    #add in table avager table in areas,
 
-      def area_math_credit < 650 ? "poor credit rating" : "Good credit rating"
-
-        rating = (area_math_credit < 650 ? "poor credit rating" : "Good credit rating");
-
-
-        def area_math_deposit
-          if area_math_deposit > 40000
-            postcode[3, 0, 4].sample
-          elsif area_math_deposit < 20000
-            postcode[1]
-          else distance_to_work < 10000
-            postcode[0]
-          end
-        end
+    def area_math_deposit(pref_area)
+      return pref_area if search_params[:deposit] > pref_area.avg_deposit
+      Area.where(avg_deposit: < search_params[:deposit]).first
+    end
