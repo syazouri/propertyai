@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
+
   end
 
   def profile
@@ -11,4 +12,6 @@ class PagesController < ApplicationController
     @deposit = current_user.deposit
     @borrowing = current_user.borrowing
   end
+
+
 end

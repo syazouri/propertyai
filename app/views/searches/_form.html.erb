@@ -1,12 +1,25 @@
 <div class="container">
-  <%= simple_form_for(area) do |f| %>
+  <%= simple_form_for(search) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
     <div class="form-inputs h5">
-      <%= f.input :income, placeholder: "e.g. 45000" %>
+      <%= f.input :borrowing, placeholder: "e.g. 25000" %>
     </div>
     <div class="form-inputs h5">
-    <%= f.input :credit_score, placeholder: "e.g. 750" %>
+      <%= f.input :gross_annual, placeholder: "e.g. 45000" %>
+    </div>
+    <div class="form-inputs h5">
+      <%= f.input :deposit, placeholder: "e.g. 5000" %>
+    </div>
+    <div class="form-inputs h5">
+      <%= f.input :credit_score, placeholder: "e.g. 650" %>
+    </div>
+    <div class="form-inputs h5">
+    <%= f.input :school, placeholder: "e.g. outstanding" %>
+    </div>
+    <div class="form-inputs h5">
+      <%= f.input :distance_to_work, placeholder: "e.g. 30 mins" %>
     </div>
     <%= f.button :submit, class: "btn-ghost" %>
   <% end %>
