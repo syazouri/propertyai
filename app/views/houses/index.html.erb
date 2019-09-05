@@ -7,7 +7,7 @@
         <div class="houses-card-content">
             <p>Address: <%= house.address%></p>
             <p>Postcode: <%= house.postcode%></p>
-              <%= link_to 'See Property', houses_show_path(house),class: "btn btn-ghost"%>
+              <%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn btn-ghost"%>
             <br>
           </div>
         </div>
