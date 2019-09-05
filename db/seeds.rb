@@ -20,6 +20,7 @@ puts 'Creating Users, Areas and Houses'
 
 AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
 POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
+AVERAGE_DEPOSIT = %w(100000 200 3000 50000 6000)
 
 # crime_url = 'https://api.propertydata.co.uk/crime?key=LKWVPEM1HL&postcode=W14+9JH'
 # crime_serialized = open(crime_url).read
@@ -62,9 +63,18 @@ POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
     demographics: demographics,
     price: price,
     demand: demand,
-    growth: growth
+    growth: growth,
+    average_deposit: AVERAGE_DEPOSIT[i]
   )
   area.save!
+
+  price = Price.new(
+    area_id: area.id,
+    amount:rand(170050..850250),
+    year: rand(2000..2018)
+  )
+  price.save!
+
 end
 
 5.times do
@@ -123,12 +133,6 @@ search = Search.new(
   area: Area.all.sample
 )
 search.save!
-
-price = Price.new(
-  amount:rand(170050..850250),
-  year: rand(2000..2018)
-)
-price.save!
 
 
 
