@@ -1,11 +1,14 @@
 <h1>AREAS INDEX</h1>
 
 <div class='container'>
-  <div class =row>
+  <div class ='row'>
    <% @areas.each do |area| %>
     <div class='col-xs-12 col-sm-3'>
      <div>
      <%= link_to area.name.upcase, area_path(area) %>
     </div>
     </div>
+
   <% end %>
+<%= @search.inspect %>
+

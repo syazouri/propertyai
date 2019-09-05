@@ -4,6 +4,8 @@ class AreasController < ApplicationController
 
   def index
     @areas = Area.all
+    @search = Search.all.last
+
   end
 
   def show
