@@ -65,11 +65,13 @@ class SearchesController < ApplicationController
     else distance_to_work > 35
       AREA_NAMES[1]
     end
+  end
 
 
     #add in table avager table in areas,
 
     def area_math_deposit(pref_area)
       return pref_area if search_params[:deposit] > pref_area.avg_deposit
-      Area.where(avg_deposit: < search_params[:deposit]).first
+      Area.where(avg_deposit: search_params[:deposit]).first
     end
+  end

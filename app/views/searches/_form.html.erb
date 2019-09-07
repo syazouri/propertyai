@@ -4,24 +4,16 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs h5">
-      <%= f.input :borrowing, placeholder: "e.g. 25000" %>
+      <%= f.input :gross_annual, placeholder: "Your annual salary", id: "search_gross_annual" %>
     </div>
-    <div class="form-inputs h5">
-      <%= f.input :gross_annual, placeholder: "e.g. 45000" %>
-    </div>
-    <div class="form-inputs h5">
-      <%= f.input :deposit, placeholder: "e.g. 5000" %>
-    </div>
-    <div class="form-inputs h5">
-      <%= f.input :credit_score, placeholder: "e.g. 650" %>
-    </div>
-    <div class="form-inputs h5">
-    <%= f.input :school, placeholder: "e.g. outstanding" %>
-    </div>
-    <div class="form-inputs h5">
-      <%= f.input :distance_to_work, placeholder: "e.g. 30 mins" %>
-    </div>
+    <form>
+<input type="button" Value="Calculate" id="multiply" />
+</form><br>
+<p>We estimate you can borrow £<span id = "result1"></span> - £<span id = "result2"></span><br>
+</p>
     <%= f.button :submit, class: "btn-ghost" %>
   <% end %>
   <br>
 </div>
+
+
