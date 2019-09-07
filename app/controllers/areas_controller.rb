@@ -4,8 +4,7 @@ class AreasController < ApplicationController
 
   def index
     @areas = Area.all
-    @search = Search.all.last
-
+    @recommended_area = Search.where(user_id: current_user.id).last.area
   end
 
   def show
