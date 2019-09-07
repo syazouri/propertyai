@@ -1,15 +1,116 @@
-<h1><%= @area.name.upcase %></h1>
+<h1 class="text-center my-3"><%= @area.name.upcase %></h1>
 
 
-<div class="card-product">
-  <img src="https://res.cloudinary.com/dstepunfe/image/upload/v1567510443/download_mccysd.jpg" />
-  <div class="card-product-infos">
-    <h2><%= @area.name.capitalize %> Details</h2>
-    <p><%= @area.sold_price %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
-    <p><%=  %></p>
+<div class="container border ">
+  <div class="row">
+        <div class="col-12" >
+                <div id="carouselExampleControls" class="carousel slide my-3" data-ride="carousel">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <%= image_tag "boxpark.jpg", class: "d-block w-100 area-img" %>
+            <!-- <img src="../../assets/images/boxpark.jpg" class="d-block w-100" alt="..."> -->
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "town_hall.jpeg", class: "d-block w-100 area-img" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "enchanted_gar.jpeg", class: "d-block w-100 area-img" %>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
   </div>
+
+  <div class="accordion my-3" id="accordionExample" >
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Price
+        </button>
+      </h2>
+    </div>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          PTAL
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Click to view crime stats
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <h3>Crime</h3><p>per 1000</p>
+        <p>Drugs: <%= @area.crime["types"]["Drugs"] %></p>
+        <p>Robbery: <%= @area.crime["types"]["Robbery"] %></p>
+        <p>Other crime: <%= @area.crime["types"]["Other crime"] %></p>
+        <p>Other theft: <%= @area.crime["types"]["Other theft"] %></p>
+        <p>Shoplifting: <%= @area.crime["types"]["Shoplifting"] %></p>
+        <p>Public order: <%= @area.crime["types"]["Public order"] %></p>
+        <p>Vehicle crime: <%= @area.crime["types"]["Vehicle crime"] %></p>
+        <p>Anti-social behaviour: <%= @area.crime["types"]["Anti-social behaviour"] %></p>
+        <p>Possession of weapons: <%= @area.crime["types"]["Possession of weapons"] %></p>
+        <p>Theft from the person: <%= @area.crime["types"]["Theft from the person"] %></p>
+        <p>Criminal damage and arson: <%= @area.crime["types"]["Criminal damage and arson"] %></p>
+        <p>Violence and sexual offences: <%= @area.crime["types"]["Violence and sexual offences"] %></p>
+
+        <%= link_to "Click here to view crime type definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingfour">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
+          test4
+        </button>
+      </h2>
+    </div>
+    <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+      <div class="card-header" id="headingfive">
+        <h2 class="mb-0">
+          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+            test5
+          </button>
+        </h2>
+      </div>
+      <div id="collapsefive" class="collapse" aria-labelledby="headingfive" data-parent="#accordionExample">
+        <div class="card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        </div>
+      </div>
+    </div>
+
+</div>
 </div>
