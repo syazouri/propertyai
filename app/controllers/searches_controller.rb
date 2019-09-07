@@ -67,4 +67,10 @@ class SearchesController < ApplicationController
     Area.where(AVERAGE_DEPOSIT < search_params[:gross_annual]).first
   end
 
-end
+    #add in table avager table in areas,
+
+    def area_math_deposit(pref_area)
+      return pref_area if search_params[:deposit] > pref_area.avg_deposit
+      Area.where(avg_deposit: search_params[:deposit]).first
+    end
+  end

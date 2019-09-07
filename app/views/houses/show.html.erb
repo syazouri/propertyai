@@ -8,18 +8,24 @@
         <div class="card-category">
         <br>
           <ul>
-           <li >
              <p> Address: <%= @house.address%></p>
              <p>Postcode: <%= @house.postcode %></p>
-             <p>Bedrooms: £ <%= @house.bedroom %> per day</p>
+             <p>Bedrooms: <%= @house.bedroom %></p>
              <p> Bathrooms: <%= @house.bathroom%> </p>
              <p> Description: <%= @house.description%> </p>
              <p> Square Feet: <%= @house.square_feet%> </p>
-             <p> Council Tax: <%= @house.council_tax%> </p>
+             <p> Council Tax: <%= @house.council_tax %> </p>
+
+             <!--<ul>
+               <% @house.council_tax.split(#{}",").each #do |x| %>
+                  <li><%= x %></li>
+               <% #end %>
+             </ul>-->
+
+             <%#= raise %>
              <p> PTAL: <%= @house.ptal%> </p>
              <p> Green Belt: <%= @house.green_belt%> </p>
              <p> Restaurants: <%= @house.restaurants%> </p>
-             </li>
           </ul>
           <br>
       </div>
