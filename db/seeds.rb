@@ -6,6 +6,7 @@ require 'open-uri'
 puts 'Deleteing all data'
 House.destroy_all
 Search.destroy_all
+Price.destroy_all
 Area.destroy_all
 User.destroy_all
 puts 'Data deleted'
@@ -19,8 +20,8 @@ puts 'Creating Users, Areas and Houses'
 # images here
 
 AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
-POSTCODE = %w(E27HE SW21EG  SW178TY EC1Y8ND NW33NT)
-AVERAGE_DEPOSIT = %w(105,051 82,405 63,540 71,013 92,097)
+POSTCODE = ["E2 7HE", "SW2 1EG", "SW17 8TY", "EC1Y 8ND", "NW 33NT"]
+AVERAGE_DEPOSIT = %w(105051 82405 63540 71013 92097)
 # AVERAGE_DEPOSIT = Average income
 LATITUDE =%w(51.5250° 51.4594° 51.4341° 51.5236° 51.5431°)
 LONGITUDE =%w(0.0755° 0.1173° 0.1584° 0.0898° 0.1718°)
@@ -69,9 +70,7 @@ LONGITUDE =%w(0.0755° 0.1173° 0.1584° 0.0898° 0.1718°)
     demand: demand,
     growth: growth,
     average_deposit: AVERAGE_DEPOSIT[i],
-    latitude: LATITUDE[i],
-    longitude: LONGITUDE[i]
-
+    area_postcode: POSTCODE[i]
   )
   area.save!
 
@@ -130,14 +129,11 @@ end
 end
 
 search = Search.new(
-  borrowing: rand(170050..850250),
   gross_annual: rand(39000..95000),
   deposit: rand(10000..30000),
-  credit_score: rand(300.. 850),
   distance_to_work: rand(10..120),
   school: [true, false].sample,
-  user: User.first,
-  area: Area.all.sample
+  user: User.first
 )
 search.save!
 
