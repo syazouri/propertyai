@@ -1,4 +1,6 @@
 import "bootstrap";
+import "../plugins/area_show";
+
 
 function multiplyBy()
 {
@@ -10,4 +12,5 @@ function multiplyBy()
 document.getElementById("multiply").addEventListener('click', () => {
   multiplyBy();
 })
+
 
