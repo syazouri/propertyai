@@ -1,19 +1,16 @@
 <div class="container">
-  <%= simple_form_for(search) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
+  <form action="/searches" method="get">
     <div class="form-inputs h5">
-      <%= f.input :gross_annual, placeholder: "Your annual salary", id: "search_gross_annual" %>
+      <label for="search_gross_annual">Your salary</label>
+      <input type="text" placeholder="Your annual salary" id="search_gross_annual">
     </div>
-    <form>
-<input type="button" Value="Calculate" id="multiply" />
-</form><br>
-<p>We estimate you can borrow £<span id = "result1"></span> - £<span id = "result2"></span><br>
-</p>
-    <%= f.button :submit, class: "btn-ghost" %>
-  <% end %>
+
+
+    <button type="submit">Submit</button>
+  </form>
   <br>
 </div>
 
 
+
+<button id="multiply">Calculate</button>
