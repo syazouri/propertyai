@@ -1,3 +1,8 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 <h1 class="text-center my-3"><%= @area.name.upcase %></h1>
 
 
@@ -7,14 +12,14 @@
                 <div id="carouselExampleControls" class="carousel slide my-3" data-ride="carousel">
         <div class="carousel-inner rounded">
           <div class="carousel-item active">
-            <%= image_tag "boxpark.jpg", class: "d-block w-100 area-img" %>
+            <%= image_tag "shoreditch/boxpark.jpg", class: "d-block w-100 area-img" %>
             <!-- <img src="../../assets/images/boxpark.jpg" class="d-block w-100" alt="..."> -->
           </div>
           <div class="carousel-item">
-            <%= image_tag "town_hall.jpeg", class: "d-block w-100 area-img" %>
+            <%= image_tag "shoreditch/town_hall.jpeg", class: "d-block w-100 area-img" %>
           </div>
           <div class="carousel-item">
-            <%= image_tag "enchanted_gar.jpeg", class: "d-block w-100 area-img" %>
+            <%= image_tag "shoreditch/enchanted_gar.jpeg", class: "d-block w-100 area-img" %>
           </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -59,27 +64,37 @@
     <div class="card-header" id="headingThree">
       <h2 class="mb-0">
         <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Click to view crime stats
+          crime
         </button>
       </h2>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
       <div class="card-body">
-        <h3>Crime</h3><p>per 1000</p>
-        <p>Drugs: <%= @area.crime["types"]["Drugs"] %></p>
-        <p>Robbery: <%= @area.crime["types"]["Robbery"] %></p>
-        <p>Other crime: <%= @area.crime["types"]["Other crime"] %></p>
-        <p>Other theft: <%= @area.crime["types"]["Other theft"] %></p>
-        <p>Shoplifting: <%= @area.crime["types"]["Shoplifting"] %></p>
-        <p>Public order: <%= @area.crime["types"]["Public order"] %></p>
-        <p>Vehicle crime: <%= @area.crime["types"]["Vehicle crime"] %></p>
-        <p>Anti-social behaviour: <%= @area.crime["types"]["Anti-social behaviour"] %></p>
-        <p>Possession of weapons: <%= @area.crime["types"]["Possession of weapons"] %></p>
-        <p>Theft from the person: <%= @area.crime["types"]["Theft from the person"] %></p>
-        <p>Criminal damage and arson: <%= @area.crime["types"]["Criminal damage and arson"] %></p>
-        <p>Violence and sexual offences: <%= @area.crime["types"]["Violence and sexual offences"] %></p>
 
-        <%= link_to "Click here to view crime type definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", class: "btn btn-primary" %>
+
+
+        <h2>Crime Rate</h2>
+
+       <div class="area-show-list">
+       <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
+       <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
+       <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
+       </div>
+
+        <ul class='area-show-list'>
+        <% @area.crime["types"].each do |type| %>
+          <li> <%= "#{type[0]}:"%> <%= "#{type[1]} (per 1000 pop)" %> <a href="#" data-toggle="popover" title='<%= "#{type[0]} Definition" %>' data-content="Possession, consumption, supply of or the intent to supply illegal drugs."><i class="fas fa-info-circle"></i></a></li>
+        <% end %>
+        </ul>
+
+        <h2>Observations</h2>
+        <ul class='area-show-list'>
+        <% @area.crime["observations"].each do |ob| %>
+        <li> <%= ob %></li>
+        <% end %>
+        </ul>
+
+        <%= link_to "Click here to view crime type definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "btn btn-primary" %>
       </div>
     </div>
   </div>
@@ -111,6 +126,12 @@
         </div>
       </div>
     </div>
+
+    <script>
+    $(document).ready(function(){
+      $('[data-toggle="popover"]').popover();
+    });
+    </script>
 
 </div>
 </div>

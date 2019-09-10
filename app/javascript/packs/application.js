@@ -1,5 +1,6 @@
 import "bootstrap";
 
+
 function multiplyBy()
 {
         const num1 = document.getElementById("search_gross_annual").value;
