@@ -1,27 +1,33 @@
 <div class="container">
-  <%= simple_form_for(search) do |f| %>
+  <%= simple_form_for(area) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-    <div class="form-inputs h5">
-      <%= f.input :gross_annual, as: :integer,  placeholder: "e.g. 45000" %>
+    <div class="form-inputs">
+      <%= f.input :name %>
     </div>
-    <div class="form-inputs h5">
-      <%= f.input :deposit, as: :integer,  placeholder: "e.g. 5000" %>
+    <div class="form-group">
+    <%= f.input :price, as: :integer %>
     </div>
-    <div class="form-inputs h5">
-    <%= f.input :school, placeholder: "e.g. outstanding" %>
+    <div class="form-inputs">
+    <%= f.input :sold_price, as: :integer %>
     </div>
-    <div class="form-inputs h5">
-      <%= f.input :distance_to_work, placeholder: "in miles" %>
+    <div class="form-inputs">
+    <%= f.input :schools %>
     </div>
-    <div class="form-inputs h5">
-      <%= f.input :work_postcode, placeholder: "E2 8DY" %>
+    <div class="form-inputs">
+    <%= f.input :demographics %>
     </div>
-    <%= f.button :submit, class: "btn-ghost" %>
+    <div class="form-inputs">
+    <%= f.input :growth %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :demand %>
+    </div>
+    <div class="form-actions">
+    <%= f.button :submit %>
+    </div>
   <% end %>
-  <br>
 </div>
 
-
+<button id="multiply">Calculate</button>
 
