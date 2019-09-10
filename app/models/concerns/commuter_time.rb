@@ -12,6 +12,7 @@ class CommuterTime
   def userInput
     # @startcoord = [current_user.lat, current_user.lng]
     [51.52495000,-0.07543900]
+
   end
 
   def potential_area

@@ -13,6 +13,11 @@ class AreasController < ApplicationController
   def edit
   end
 
+  def geocode
+    geocoded_by :address
+    after_validation :geocode, if: :will_save_change_to_address?
+  end
+
   def update
     if @area.update(area_params)
       redirect_to area_path(@area), notice: "#{@area.name} was successfully updated."

@@ -1,4 +1,6 @@
 import "bootstrap";
+import "../plugins/area_show";
+
 
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");
@@ -17,4 +19,5 @@ function calculateMortgage() {
   }
 }
 calculateMortgage();
+
 

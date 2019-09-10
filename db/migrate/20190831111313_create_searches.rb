@@ -7,7 +7,6 @@ class CreateSearches < ActiveRecord::Migration[5.2]
       t.integer :credit_score
       t.boolean :school
       t.integer :distance_to_work
-      t.references :area, foreign_key: true
       t.references :user, foreign_key: true
 
       t.timestamps

@@ -1,16 +1,33 @@
 <div class="container">
-  <form action="/searches" method="get">
-    <div class="form-inputs h5">
-      <label for="search_gross_annual">Your salary</label>
-      <input type="text" placeholder="Your annual salary" id="search_gross_annual">
+  <%= simple_form_for(area) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :name %>
     </div>
-
-
-    <button type="submit">Submit</button>
-  </form>
-  <br>
+    <div class="form-group">
+    <%= f.input :price, as: :integer %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :sold_price, as: :integer %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :schools %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :demographics %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :growth %>
+    </div>
+    <div class="form-inputs">
+    <%= f.input :demand %>
+    </div>
+    <div class="form-actions">
+    <%= f.button :submit %>
+    </div>
+  <% end %>
 </div>
 
-
-
 <button id="multiply">Calculate</button>
+
