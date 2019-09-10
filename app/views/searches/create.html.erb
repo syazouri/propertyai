@@ -1,2 +1,14 @@
-<p>hello</p>
-<%= link_to'result of search', areas_path %>
+<p>hello</p
+
+<%= #form_tag area_path, #method: :get do %>
+  <%= #text_field_tag :query,
+    #params[:query],
+     #class: "form-control",
+    #placeholder: ""
+  %>
+  <%= #submit_tag "Search", class: "btn btn-primary" %>
+<% #end %>
+
+
+  <%= link_to'result of search', areas_path %>
+
