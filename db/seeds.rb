@@ -19,49 +19,66 @@ User.create! email: "test@test.com", password: "123456"
 puts 'Creating Users, Areas and Houses'
 # images here
 
-AREA_NAMES = %w(shoreditch lambeth wandsworth hackney camden)
-POSTCODE = ["E2 7HE", "SW2 1EG", "SW17 8TY", "EC1Y 8ND", "NW 33NT"]
-AVERAGE_DEPOSIT = %w(105051 82405 63540 71013 92097)
-# AVERAGE_DEPOSIT = Average income
-LATITUDE =%w(51.5250° 51.4594° 51.4341° 51.5236° 51.5431°)
-LONGITUDE =%w(0.0755° 0.1173° 0.1584° 0.0898° 0.1718°)
+areas = [
+  { name: 'shoreditch',
+    postcode: 'E2 7HE'
+    },
+  # average_deposit => 105051},
+  {
+    name: 'lambeth',
+    postcode: 'SW2 1EG',
+    # average_deposit => 82405
+  },
+  {
+    name: 'wandsworth',
+    postcode: "SW17 8TY",
+    # average_deposit => 63540
+  },
+  {
+    name: 'hackney',
+    postcode: 'EC1Y 8ND',
+    # average_deposit => 71013
+  },
+  {
+    name: 'camden',
+    postcode: 'NW3 3NT',
+    # average_deposit => 92097
+  }
+]
 
 
-# crime_url = 'https://api.propertydata.co.uk/crime?key=LKWVPEM1HL&postcode=W14+9JH'
-# crime_serialized = open(crime_url).read
-# crime = JSON.parse(crime_serialized)
 
-5.times do |i|
-  crime_url = "https://api.propertydata.co.uk/crime?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+areas.each do |area|
+  crime_url = "https://api.propertydata.co.uk/crime?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   crime = JSON.parse(open(crime_url).read)
-  sleep(2)
+  sleep(3)
 
-  school_url = "https://api.propertydata.co.uk/schools?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  school_url = "https://api.propertydata.co.uk/schools?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   school = JSON.parse(open(school_url).read)
-  sleep(2)
+  sleep(3)
 
-  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}&type=flat&max_age=12"
+  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&type=flat&max_age=12"
   sold_price = JSON.parse(open(sold_price_url).read)
-  sleep(2)
+  sleep(3)
 
-  demographics_url = "https://api.propertydata.co.uk/demand?key=LKWVPEM1HL&postcode=W14=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  demographics_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
-  sleep(2)
+  sleep(3)
 
-  price_url = "https://api.propertydata.co.uk/prices?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}&bedrooms=2"
+  price_url = "https://api.propertydata.co.uk/prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&bedrooms=2"
   price = JSON.parse(open(price_url).read)
-  sleep(2)
+  sleep(3)
 
-  growth_url = "https://api.propertydata.co.uk/growth?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  growth_url = "https://api.propertydata.co.uk/growth?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   growth = JSON.parse(open(growth_url).read)
-  sleep(2)
+  sleep(3)
 
-  demand_url = "https://api.propertydata.co.uk/demand?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  demand_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demand = JSON.parse(open(demand_url).read)
-  sleep(2)
+  sleep(3)
 
   area = Area.new(
-    name: AREA_NAMES[i],
+    name: area[:name],
     crime: crime,
     schools: school,
     sold_price: sold_price,
@@ -69,8 +86,8 @@ LONGITUDE =%w(0.0755° 0.1173° 0.1584° 0.0898° 0.1718°)
     price: price,
     demand: demand,
     growth: growth,
-    average_deposit: AVERAGE_DEPOSIT[i],
-    area_postcode: POSTCODE[i]
+    # average_deposit: AVERAGE_DEPOSIT[i],
+    area_postcode: area[:postcode]
   )
   area.save!
 
@@ -99,22 +116,22 @@ end
   counter = 0
 end
 
-5.times do |i|
-  council_tax_url = "https://api.propertydata.co.uk/council-tax?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+Area.all.each do |area|
+  council_tax_url = "https://api.propertydata.co.uk/council-tax?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   council_tax = JSON.parse(open(council_tax_url).read)
   sleep(2)
 
-  ptal_url = "https://api.propertydata.co.uk/ptal?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  ptal_url = "https://api.propertydata.co.uk/ptal?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   ptal = JSON.parse(open(ptal_url).read)
   sleep(2)
 
-  restaurants_url = "https://api.propertydata.co.uk/restaurants?key=LKWVPEM1HL&postcode=#{POSTCODE[i]}"
+  restaurants_url = "https://api.propertydata.co.uk/restaurants?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   restaurants = JSON.parse(open(restaurants_url).read)
   sleep(2)
 
   house = House.new(
     address: Faker::Address.street_address,
-    postcode: POSTCODE[i],
+    postcode: area.area_postcode,
     bedroom: rand(1..6),
     description: Faker::Lorem.paragraph(sentence_count: 2),
     bathroom: rand(1..2),
@@ -122,7 +139,7 @@ end
     council_tax: council_tax,
     ptal: ptal,
     green_belt: false, # or we could this instead [true, false].sample,
-    area: Area.all[i],
+    area: area,
     restaurants: restaurants     #Faker::Restaurant.name
   )
   house.save!

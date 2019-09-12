@@ -1,27 +1,17 @@
 <div class="container">
-  <%= simple_form_for(area) do |f| %>
+  <%= simple_form_for(search) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
     <div class="form-inputs">
-      <%= f.input :name %>
+      <%= f.input :gross_annual %>
     </div>
-    <div class="form-group">
-    <%= f.input :price, as: :integer %>
+    <button type="button" id="multiply">Calculate</button>
+    <input type="hidden" id="max-mortgage" name="max-mortgage">
+    <div class="form-inputs">
+    <%= f.input :distance_to_work, as: :integer %>
     </div>
     <div class="form-inputs">
-    <%= f.input :sold_price, as: :integer %>
-    </div>
-    <div class="form-inputs">
-    <%= f.input :schools %>
-    </div>
-    <div class="form-inputs">
-    <%= f.input :demographics %>
-    </div>
-    <div class="form-inputs">
-    <%= f.input :growth %>
-    </div>
-    <div class="form-inputs">
-    <%= f.input :demand %>
+    <%= f.input :work_postcode %>
     </div>
     <div class="form-actions">
     <%= f.button :submit %>
@@ -29,5 +19,5 @@
   <% end %>
 </div>
 
-<button id="multiply">Calculate</button>
+
 
