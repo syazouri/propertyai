@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_185056) do
+ActiveRecord::Schema.define(version: 2019_09_12_201601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_09_10_185056) do
     t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["area_id"], name: "index_houses_on_area_id"
   end
 
@@ -65,12 +66,14 @@ ActiveRecord::Schema.define(version: 2019_09_10_185056) do
     t.integer "credit_score"
     t.boolean "school"
     t.integer "distance_to_work"
+    t.bigint "area_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
     t.string "work_postcode"
+    t.index ["area_id"], name: "index_searches_on_area_id"
     t.index ["user_id"], name: "index_searches_on_user_id"
   end
 
@@ -97,5 +100,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_185056) do
 
   add_foreign_key "houses", "areas"
   add_foreign_key "prices", "areas"
+  add_foreign_key "searches", "areas"
   add_foreign_key "searches", "users"
 end

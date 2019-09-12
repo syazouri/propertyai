@@ -119,30 +119,33 @@ end
 Area.all.each do |area|
   council_tax_url = "https://api.propertydata.co.uk/council-tax?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   council_tax = JSON.parse(open(council_tax_url).read)
-  sleep(2)
+  sleep(3)
 
   ptal_url = "https://api.propertydata.co.uk/ptal?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   ptal = JSON.parse(open(ptal_url).read)
-  sleep(2)
+  sleep(3)
 
   restaurants_url = "https://api.propertydata.co.uk/restaurants?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   restaurants = JSON.parse(open(restaurants_url).read)
-  sleep(2)
+  sleep(3)
 
-  house = House.new(
-    address: Faker::Address.street_address,
-    postcode: area.area_postcode,
-    bedroom: rand(1..6),
-    description: Faker::Lorem.paragraph(sentence_count: 2),
-    bathroom: rand(1..2),
-    square_feet:rand(100..300),
-    council_tax: council_tax,
-    ptal: ptal,
-    green_belt: false, # or we could this instead [true, false].sample,
-    area: area,
-    restaurants: restaurants     #Faker::Restaurant.name
-  )
-  house.save!
+  area.sold_price["data"]["raw_data"].first(3).each do |house_hash|
+    house = House.new(
+      address: house_hash["address"],
+      postcode: house_hash["address"].split(", ").last,
+      bedroom: rand(1..6),
+      description: Faker::Lorem.paragraph(sentence_count: 2),
+      bathroom: rand(1..2),
+      square_feet:rand(100..300),
+      council_tax: council_tax,
+      ptal: ptal,
+      green_belt: false, # or we could this instead [true, false].sample,
+      area: area,
+      restaurants: restaurants,
+      price: house_hash["price"]     #Faker::Restaurant.name
+    )
+    house.save!
+  end
 end
 
 search = Search.new(
