@@ -1,5 +1,9 @@
 import "bootstrap";
 import "../plugins/area_show";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapbox } from '../plugins/init_mapbox';
+
+initMapbox();
 
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");

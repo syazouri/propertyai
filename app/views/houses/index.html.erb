@@ -5,6 +5,7 @@
     <div class="houses-card">
        <%= image_tag "logo.png"%>
         <div class="houses-card-content">
+            <p>Price: <%= house.price%></p>
             <p>Address: <%= house.address%></p>
             <p>Postcode: <%= house.postcode%></p>
               <%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn btn-ghost"%>
@@ -14,3 +15,10 @@
     <% end %>
 </div>
 
+<div
+  id="map"
+  style="width: 50%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>

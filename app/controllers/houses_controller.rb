@@ -1,12 +1,34 @@
 class HousesController < ApplicationController
   before_action :set_house, only: [:show]
 
-def index
-    @houses = House.all
+  def index
+    @houses = House.geocoded
+    @markers = @houses.map do |house|
+      {
+        lat: house.latitude,
+        lng: house.longitude,
+        infoWindow: render_to_string(partial: "info_window_house", locals: { house: house })
+      }
+    end
   end
 
   def show
-  end
+    @house = House.find(params[:id])
+
+    house_coordinates = {
+      lat: @house.latitude,
+      lng: @house.longitude,
+      infoWindow: render_to_string(partial: "info_window_house", locals: { house: @house })
+    }
+    @markers = @house.restaurants["data"]["nearby"].map do |restaurant|
+      {
+        lat: restaurant["lat"].to_f,
+        lng: restaurant["lng"].to_f,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+      }
+    end
+    @markers << house_coordinates
+end
 
   private
 
@@ -18,3 +40,4 @@ def index
     @house = House.find(params[:id])
   end
 end
+
