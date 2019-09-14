@@ -10,6 +10,13 @@ class AreasController < ApplicationController
   end
 
   def show
+    @schools = @area["schools"]["data"]["state"]["nearest"].map { |url| url["postcode"]}
+
+     @markers = @schools.map do |postcode|
+      results = Geocoder.search(postcode)
+       { lat: results.first.coordinates[0], lng: results.first.coordinates[1]}
+    end
+    raise
   end
 
   def edit
