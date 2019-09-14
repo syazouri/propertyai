@@ -51,31 +51,31 @@ areas = [
 areas.each do |area|
   crime_url = "https://api.propertydata.co.uk/crime?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   crime = JSON.parse(open(crime_url).read)
-  sleep(3)
+  sleep(20)
 
   school_url = "https://api.propertydata.co.uk/schools?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   school = JSON.parse(open(school_url).read)
-  sleep(3)
+  sleep(20)
 
   sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&type=flat&max_age=12"
   sold_price = JSON.parse(open(sold_price_url).read)
-  sleep(3)
+  sleep(20)
 
   demographics_url = "https://api.propertydata.co.uk/demographics?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
-  sleep(3)
+  sleep(20)
 
   price_url = "https://api.propertydata.co.uk/prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&bedrooms=2"
   price = JSON.parse(open(price_url).read)
-  sleep(3)
+  sleep(20)
 
   growth_url = "https://api.propertydata.co.uk/growth?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   growth = JSON.parse(open(growth_url).read)
-  sleep(3)
+  sleep(20)
 
   demand_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demand = JSON.parse(open(demand_url).read)
-  sleep(3)
+  sleep(20)
 
   area = Area.new(
     name: area[:name],
@@ -119,15 +119,15 @@ end
 Area.all.each do |area|
   council_tax_url = "https://api.propertydata.co.uk/council-tax?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   council_tax = JSON.parse(open(council_tax_url).read)
-  sleep(3)
+  sleep(20)
 
   ptal_url = "https://api.propertydata.co.uk/ptal?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   ptal = JSON.parse(open(ptal_url).read)
-  sleep(3)
+  sleep(20)
 
   restaurants_url = "https://api.propertydata.co.uk/restaurants?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
   restaurants = JSON.parse(open(restaurants_url).read)
-  sleep(3)
+  sleep(20)
 
   area.sold_price["data"]["raw_data"].first(3).each do |house_hash|
     house = House.new(
