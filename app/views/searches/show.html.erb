@@ -2,11 +2,13 @@
 <p>Find me in app/views/search/show.html.erb</p>
 
 
-
+<div class="container">
 <!-- <p>waiting search page </p> -->
 <%#= 'select area', area_path%>
 
 <% @areas.each do |area| %>
+<!-- this  -->
   <h1><%= area.name %> Price: <%= area.sold_price["data"]["average"] %></h1>
 <% end %>
 
+</div>
