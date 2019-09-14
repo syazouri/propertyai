@@ -61,7 +61,7 @@ areas.each do |area|
   sold_price = JSON.parse(open(sold_price_url).read)
   sleep(3)
 
-  demographics_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  demographics_url = "https://api.propertydata.co.uk/demographics?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
   sleep(3)
 
