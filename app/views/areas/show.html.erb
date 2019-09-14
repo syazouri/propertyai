@@ -1,3 +1,4 @@
+<%= javascript_pack_tag "chart" %>
 <h1 class="text-center my-3"><%= @area.name.upcase %></h1>
 
 
@@ -38,6 +39,8 @@
     </div>
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
+        <h2>Average Price last 5 years</h2>
+        <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
       </div>
     </div>
   </div>

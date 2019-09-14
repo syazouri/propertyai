@@ -5,7 +5,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
 
-
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");
   if (calculateBtn) {
