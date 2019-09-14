@@ -40,7 +40,7 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
         <h2>Average Price last 5 years</h2>
-        <%= line_chart Area.first["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
+        <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
       </div>
     </div>
   </div>
