@@ -20,8 +20,8 @@ puts 'Creating Users, Areas and Houses'
 # images here
 
 areas = [
-  { name: 'shoreditch',
-    postcode: 'E2 7HE'
+  { name: 'tower hamlets',
+    postcode: 'E14 4QJ'
     },
   # average_deposit => 105051},
   {
@@ -61,7 +61,7 @@ areas.each do |area|
   sold_price = JSON.parse(open(sold_price_url).read)
   sleep(3)
 
-  demographics_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  demographics_url = "https://api.propertydata.co.uk/demographics?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
   sleep(3)
 

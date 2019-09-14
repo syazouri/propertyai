@@ -46,7 +46,7 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:gross_annual, :deposit, :school, :distance_to_work, :work_postcode, :user_id)
+    params.require(:search).permit(:gross_annual, :deposit, :school, :distance_to_work, :work_postcode, :user_id, :crime, :price)
   end
 
   def area_maths
