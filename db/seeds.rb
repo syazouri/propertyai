@@ -20,8 +20,8 @@ puts 'Creating Users, Areas and Houses'
 # images here
 
 areas = [
-  { name: 'shoreditch',
-    postcode: 'E2 7HE'
+  { name: 'tower hamlets',
+    postcode: 'E14 4QJ'
     },
   # average_deposit => 105051},
   {
