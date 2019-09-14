@@ -15,9 +15,9 @@
              <p> Bathrooms: <%= @house.bathroom%> </p>
              <p> Description: <%= @house.description%> </p>
              <p> Square Feet: <%= @house.square_feet%> </p>
-             <p> Council Tax: <%= @house.council_tax["council_tax"].each do |band, amount|
-             puts "#{band}: $#{amount}"
-              end %> </p>
+             <p> Council Tax: <% @house.council_tax["council_tax"].each do |band, value| %>
+              <p><%= band %>: £<%= value %></p>
+             <% end %>
              <p> Green Belt: <%= @house.green_belt%> </p>
              <p> Restaurants: <%= @house.restaurants%> </p>
           </ul>
