@@ -4,6 +4,7 @@
     <div class="intro">
       <h1>Welcome to <strong>Property AI</strong>!</h1>
       <p>Here in this website our goal is to help you find your dream house. But not just that... The dream house in the dream neighbourhood. </p>
+      <br />
       <div class="btn btn-main">
       <%= link_to'Let\'s get you started!', new_search_path, class: "button" %>
       </div>
@@ -25,27 +26,116 @@
   </div>
 
 
-<div class="description">
+<div class="cards">
   <div class="card">
-    <%= image_tag "carousel1.png" %>
-    <div class="card-body">
+    <%= image_tag "area2.png" %>
     <h5 class="card-title">We bring property search to the next level</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
   </div>
   <div class="card">
-    <%= image_tag "carousel2.png" %>
-    <div class="card-body">
+    <%= image_tag "area3.png" %>
     <h5 class="card-title">Searching your dream house, not just about how many bathrooms you want</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
   </div>
   <div class="card">
-    <%= image_tag "carousel3.png" %>
-    <div class="card-body">
+    <%= image_tag "area1.png" %>
     <h5 class="card-title">Detailed neighbourhood chekcking</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<h2 class="cards_header">Most popular areas</h2>
+<div class="cards">
+  <div class="card">
+    <%= image_tag "area_shoreditch.jpg" %>
+    <ul class="list_item">
+      <li><strong>Shoreditch</strong></li>
+      <li>Crime rate: </li>
+      <li>Average sold price: </li>
+      <li>Schools near by: </li>
+    </ul>
+  </div>
+<div class="card">
+  <%= image_tag "area_hackney.jpg" %>
+  <ul class="list_item">
+      <li><strong>Hackney</strong></li>
+      <li>Crime rate: </li>
+      <li>Average sold price: </li>
+      <li>Schools near by: </li>
+    </ul>
+  </div>
+<div class="card">
+  <%= image_tag "area_greenwich.jpg" %>
+  <ul class="list_item">
+      <li><strong>Greenwich</strong></li>
+      <li>Crime rate: </li>
+      <li>Average sold price: </li>
+      <li>Schools near by: </li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="cards_header">Recently added houses</h2>
+<div class="cards">
+  <div class="card">
+    <div class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "property1.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property2.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property3.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property4.jpg" %>
+        </div>
+      </div>
     </div>
+    <br />
+    <p><strong>12 St. Peter's street<br />CAMDEN</strong></p>
+  </div>
+  <div class="card">
+    <div class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "property3.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property4.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property1.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property2.jpg" %>
+        </div>
+      </div>
+    </div>
+     <br />
+    <p><strong>89 King Road<br />WANDSWORTH</strong></p>
+  </div>
+  <div class="card">
+    <div class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag "property2.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property4.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property3.jpg" %>
+        </div>
+        <div class="carousel-item">
+          <%= image_tag "property1.jpg" %>
+        </div>
+      </div>
+    </div>
+     <br />
+    <p><strong>354 Huffelpuff Road<br />LAMBETH</strong></p>
   </div>
 </div>
 

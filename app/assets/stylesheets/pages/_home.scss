@@ -1,5 +1,5 @@
 body {
-  background: #FCF5C7;
+  background: #DCE3F7;
 }
 
 .banner {
@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-position: center;
   text-align: center;
+  border-radius: 10px;
 }
 
 .intro > h1 {
@@ -39,11 +40,12 @@ body {
 }
 
 .form-group {
-  border-bottom: 2px solid #79ADDC;
-  color: #79ADDC;
+  border-bottom: 2px solid #787c86;
+  color: #787c86;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  background: transparent;
 }
 
 .form-control{
@@ -52,17 +54,42 @@ border: none;
 
 }
 
-.description {
+.cards_header{
+  margin-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.cards {
   margin: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 .card {
+   background: white;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
   border: none;
 }
 
 .card > img {
-  width: auto;
-  height: 300px;
+  width: 370px;
+  height: 250px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.list_item{
+  margin: 20px;
+}
+
+.carousel-item > img {
+  width: 370px;
+  height: 250px;
 }
