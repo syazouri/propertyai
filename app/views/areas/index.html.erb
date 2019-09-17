@@ -1,14 +1,18 @@
 <h1 class="text-center">AREAS INDEX</h1>
 
+
 <div class='container'>
-  <div class ='row'>
+  <div class =row>
    <% @areas.each do |area| %>
     <div class='col-xs-12 col-sm-3'>
-     <div>
-     <%= link_to area.name.upcase, area_path(area) %>
+       <div class="card-area">
+           <%= image_tag "shoreditch/boxpark.jpg"%>
+          <div class="card-area-footer">
+            <div>
+              <%= link_to area.name.upcase, area_path(area) %>
+              <p></p>
+              <p><%= "Local schools: #{area["schools"]["data"]["state"]["nearest"].count}" %></p>
+          </div>
+        </div>
     </div>
-    </div>
-
   <% end %>
-<%= @search.inspect %>
-

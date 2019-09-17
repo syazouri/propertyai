@@ -1,6 +1,7 @@
 .area-img {
-  height: 250px;
+  height: 300px;
   width: 100%;
+  object-fit: cover;
 }
 
 .area-show-list {
@@ -8,3 +9,6 @@
   padding: 0px;
   margin: 16px 0px;
 }
+
+
+

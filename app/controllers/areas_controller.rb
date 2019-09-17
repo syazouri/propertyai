@@ -4,19 +4,22 @@ class AreasController < ApplicationController
 
   def index
     @areas = Area.all
-
     # @area = Area.where(user_id: current_user.id).last.area
 
   end
 
   def show
-    @schools = @area["schools"]["data"]["state"]["nearest"].map { |url| url["postcode"]}
+    @schools = @area["schools"]["data"]["state"]["nearest"]
+    # @school = @area["schools"]["data"]["state"]["nearest"]
+    # @name = @school[0]["name"]
 
-     @markers = @schools.map do |postcode|
-      results = Geocoder.search(postcode)
-       { lat: results.first.coordinates[0], lng: results.first.coordinates[1]}
+     @markers = @schools.map do |school|
+      results = Geocoder.search(school["postcode"])
+       { lat: results.first.coordinates[0],
+         lng: results.first.coordinates[1],
+         infoWindow: render_to_string(partial: "school_map", locals: { school: school  })
+       }
     end
-    raise
   end
 
   def edit

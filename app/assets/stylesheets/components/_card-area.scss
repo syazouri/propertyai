@@ -1,0 +1,31 @@
+.card-area {
+  background: white;
+  margin: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card-area-footer {
+  padding: 16px;
+}
+
+.card-area-footer a {
+  text-decoration: none;
+}
+
+
+.card-area p {
+  margin: 0;
+}
+
+.card-area h2 {
+  margin: 0;
+}
+
+.card-area img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
