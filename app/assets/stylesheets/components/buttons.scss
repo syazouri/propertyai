@@ -1,5 +1,6 @@
 
 .button {
+  display: inline-block;
   color: white;
   background-color: #FF4A1C;
   border: 1px solid #FF4A1C;
@@ -8,9 +9,15 @@
   font-weight: lighter;
   opacity: 0.8;
   transition: opacity 0.1s ease;
+  margin: 5px;
 }
 
 .button:hover {
   opacity: 1;
   color: white;
+}
+
+.middle{
+  margin-left: auto;
+  margin-right: auto;
 }
