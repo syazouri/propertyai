@@ -4,14 +4,16 @@
 <div class='container'>
   <div class =row>
    <% @areas.each do |area| %>
-    <div class='col-xs-12 col-sm-3'>
+    <div class='col-xs-12 col-sm-4'>
        <div class="card-area">
            <%= image_tag "shoreditch/boxpark.jpg"%>
           <div class="card-area-footer">
             <div>
               <%= link_to area.name.upcase, area_path(area) %>
-              <p></p>
-              <p><%= "Local schools: #{area["schools"]["data"]["state"]["nearest"].count}" %></p>
+              <p> <%= "Crime Rating: #{area.crime['crime_rating']}" %></p>
+              <p><%= "Good local schools: #{area["schools"]["data"]["state"]["nearest"].count}" %></p>
+              <p><%= "Area Demand: #{area["demand"]["demand_rating"]}"  %></p>
+            </div>
           </div>
         </div>
     </div>

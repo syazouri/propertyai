@@ -1,14 +1,15 @@
-.area-img {
-  height: 300px;
-  width: 100%;
-  object-fit: cover;
+.area-show-container {
+  background-color: white;
+  margin: 32px;
+  padding: 16px;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: rgb(200,200,200);
+  border-width: 2px;
 }
 
-.area-show-list {
-  list-style: none;
-  padding: 0px;
-  margin: 16px 0px;
+.area-show-crime {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-
-
-

@@ -1,21 +1,25 @@
 .card-area {
   background: white;
   margin: 16px;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .card-area-footer {
   padding: 16px;
+  margin: 0;
 }
+
 
 .card-area-footer a {
   text-decoration: none;
+  margin: 0;
+  padding: 8px;
 }
-
 
 .card-area p {
   margin: 0;
+  padding: 8px;
 }
 
 .card-area h2 {
@@ -28,4 +32,8 @@
   object-fit: cover;
 }
 
-
+.box-area {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

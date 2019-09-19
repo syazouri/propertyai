@@ -8,35 +8,45 @@
      </div>
 
 <div class="container">
-    <div>
+    <div class="area-show-container">
       <h2> Price</h2>
-    <h3>Average Price last 5 years</h3>
+    <p><%="Average  Price last 5 years in #{@area.name.capitalize}" %></p>
     <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
     </div>
 
-    <div>
+
+    <div class="area-show-container">
       <h2>Crime Rate</h2>
-
-       <div class="area-show-list">
-       <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
-       <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
-       <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
-       </div>
-
         <%= bar_chart @area.crime["types"],  xtitle: "per 1000 pop", ytitle: "Type of Crime" %>
 
-        <%= link_to "Click here to view crime type definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
+      <div class=" my-3 text-center">
+       <%= link_to "Crime Type Definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
+      </div>
 
-        <h2>Observations</h2>
-        <ul class='area-show-list'>
+
+      <div class="area-show-crime">
+        <div>
+          <h2>Crime Overview</h2>
+          <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
+          <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
+          <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
+        </div>
+
+        <div>
+            <h2>Observations</h2>
+        <ul>
         <% @area.crime["observations"].each do |ob| %>
         <li> <%= ob %></li>
         <% end %>
         </ul>
+        </div>
+      </div>
 
     </div>
 
-
+    <div class="area-show-container">
+      <h2>Schools</h2>
+      <div>
         <div
           id="map"
           style="width: 100%;
@@ -44,5 +54,31 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
+        <div class="area-school-info">
+          <h2>Click on marker to view school information </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="area-show-container">
+      <h2>Demograpics</h2>
+      <div class="my-3">
+       <p><%="Breakdown of population by age for #{@area.name.capitalize}" %></p>
+       <%= column_chart @area.demographics["data"]["age"], xtitle: "Age range", ytitle: "% of pop" %>
+      </div>
+
+      <div class="area-show-crime">
+        <div>
+          <p><%="Political vote last election for #{@area.name.capitalize}" %></p>
+        <%= pie_chart @area.demographics["data"]["politics"]["results"] %>
+        </div>
+
+        <div>
+          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %></p>
+          <%= pie_chart @area.demographics["data"]["social_grade"]   %>
+          <%= link_to "Social Grade Definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
+        </div>
+    </div>
+
 </div>
 
