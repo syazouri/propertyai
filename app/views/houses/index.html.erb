@@ -1,24 +1,25 @@
-<div class="contain">
+<div class="container">
   <h1 id="title">List of Properties</h1>
 
+  <div class="cards">
     <% @houses.each do |house| %>
-    <div class="houses-card">
-       <%= image_tag "logo.png"%>
-        <div class="houses-card-content">
-            <p>Price: <%= house.price%></p>
-            <p>Address: <%= house.address%></p>
-            <p>Postcode: <%= house.postcode%></p>
-              <%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn btn-ghost"%>
-            <br>
-          </div>
-        </div>
+      <div class="house-card">
+        <%= image_tag "houses/#{house.photo}", class: "img" %><br>
+        <h7>£<%= house.price%></h7>
+        <p><%= house.address%></p>
+        <p>Bedrooms: <%= house.bedroom%></p>
+        <p>Bathroom: <%= house.bathroom%></p>
+        <h8><%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn-ghost"%></h8>
+      </div>
     <% end %>
-</div>
-
-<div
+  </div>
+  <div
   id="map"
   style="width: 50%;
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+</div>
+
+

@@ -16,7 +16,6 @@ class AreasController < ApplicationController
       results = Geocoder.search(postcode)
        { lat: results.first.coordinates[0], lng: results.first.coordinates[1]}
     end
-    raise
   end
 
   def edit
