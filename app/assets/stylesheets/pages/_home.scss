@@ -52,13 +52,19 @@ body {
   background: transparent;
 }
 
-.form-control{
+.form-control {
 text-align: center;
 border: none;
-
+background-color: transparent;
 }
 
+.user_remember_me {
+  border: none;
+}
 
+.form-control:hover{
+  background-color: transparent;
+}
 
 ul {
   list-style-type: none;
