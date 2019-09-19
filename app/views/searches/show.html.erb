@@ -8,7 +8,11 @@
 
 <% @areas.each do |area| %>
 <!-- this  -->
+<%= link_to 'my area', area_path(area) %>
+
+<%= link_to area_path(area) do  %>
   <h1><%= area.name %> Price: <%= area.sold_price["data"]["average"] %></h1>
+<% end %>
 <% end %>
 
 </div>
