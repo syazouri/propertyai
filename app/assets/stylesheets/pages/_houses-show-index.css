@@ -15,12 +15,28 @@
     background-repeat:   no-repeat;
     background-size:     cover;
     object-fit: cover;
+    border-radius: 14px;
 }
 
 .house-card {
   grid-gap: 16px;
-  margin: 0 auto;
+  margin: 5px auto;
+  padding: 10px;
   grid-template-columns: 65% 35%;
+  border-radius: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(169, 169, 169);
+  border-image: initial;
+  transition: box-shadow 0.5s ease-in-out 0s;
+  background-color: #ffffff
+}
+
+.house-card:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 5px 5px 5px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
 }
 
 .map {
@@ -44,7 +60,7 @@ h8 {
     font-weight: bold;
     font-size: 12pt;
     outline: none;
-    float: center;
+    margin-left: 80px;
 }
 
 .btn-ghost:hover {

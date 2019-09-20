@@ -2,6 +2,12 @@ class HousesController < ApplicationController
   before_action :set_house, only: [:show]
 
   def index
+    if params[:search].present?
+      @houses = House.perform_search(params[:search])
+    else
+      @houses = House.all
+    end
+
     @houses = House.geocoded
     @markers = @houses.map do |house|
       {

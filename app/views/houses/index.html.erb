@@ -1,11 +1,28 @@
 <div class="container">
   <h1 id="title">List of Properties</h1>
 
+  <!-- <input type=”text” name=”query” id=”query”> -->
+  <p>Bedrooms</p>
+  <select name="Bedrooms">
+    <option value="one">1</option>
+    <option value="two">2</option>
+    <option value="three">3</option>
+    <option value="four">4+</option>
+  </select>
+
+
+  <p>Bathrooms</p>
+  <select name="Bathrooms">
+    <option value="one">1</option>
+    <option value="two">2+</option>
+  </select>
+  <button type="button">Search</button>
+
   <div class="cards">
     <% @houses.each do |house| %>
       <div class="house-card">
         <%= image_tag "houses/#{house.photo}", class: "img" %><br>
-        <h7>£<%= house.price%></h7>
+        <h7>£<%= number_with_delimiter(house.price)%></h7>
         <p><%= house.address%></p>
         <p>Bedrooms: <%= house.bedroom%></p>
         <p>Bathroom: <%= house.bathroom%></p>
@@ -15,8 +32,8 @@
   </div>
   <div
   id="map"
-  style="width: 50%;
-  height: 600px;"
+  style="width: 100%;
+  height: 300px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
