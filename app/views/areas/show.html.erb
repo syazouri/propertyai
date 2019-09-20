@@ -10,21 +10,24 @@
 <div class="container">
     <div class="area-show-container">
       <h2> Price</h2>
-    <p><%="Average  Price last 5 years in #{@area.name.capitalize}" %></p>
+    <p><%="Average  price last 5 years in #{@area.name.capitalize}" %></p>
     <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
-    </div>
+
+
+  <%= render "price_change" %>
+
+
+
+</div>
 
 
     <div class="area-show-container">
       <h2>Crime Rate</h2>
+        <p><%="Breakdown of crime by type for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
         <%= bar_chart @area.crime["types"],  xtitle: "per 1000 pop", ytitle: "Type of Crime" %>
 
-      <div class=" my-3 text-center">
-       <%= link_to "Crime Type Definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
-      </div>
 
-
-      <div class="area-show-crime">
+      <div class="area-show-crime my-3">
         <div>
           <h2>Crime Overview</h2>
           <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
@@ -74,9 +77,8 @@
         </div>
 
         <div>
-          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %></p>
+          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
           <%= pie_chart @area.demographics["data"]["social_grade"]   %>
-          <%= link_to "Social Grade Definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
         </div>
     </div>
 

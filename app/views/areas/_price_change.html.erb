@@ -1,0 +1,24 @@
+ <p><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>
+<div class="my-3">
+ <table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>% Change</th>
+    </tr>
+  </thead>
+ <tbody>
+    <% @area.growth["data"].each do |growth| %>
+     <% if growth[2].nil? %>
+     <td><%= "#{growth[0]}:"%></td>
+     <td><%= "No Data"%></td>
+       <% else %>
+      <tr>
+        <td><%= "#{growth[0]}:"%></td>
+        <td><%= "#{growth[2]}" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>

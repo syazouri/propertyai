@@ -8,8 +8,28 @@
   border-width: 2px;
 }
 
+.area-show-container a {
+  text-decoration: none;
+}
+
 .area-show-crime {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 4px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
