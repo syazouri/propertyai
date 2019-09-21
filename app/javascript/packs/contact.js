@@ -7,13 +7,14 @@
   // add the response message
 
 
+
 const messageForm = document.querySelector('#comment-form');
 const messageList = document.querySelector('#messages ul');
 const submit = document.querySelector("#submit_comment");
 
-
 const addMessageToFormUser = (message) => {
   const newMessage = `<div class='user-message'>${message}<div>`;
+
   messageList.insertAdjacentHTML("afterbegin", newMessage)
 }
 
@@ -35,6 +36,7 @@ const welcomeVisitor =()=> {
 }
 
 const talkingUser = () => {
+  if (messageForm) {
     messageForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const userMessage = document.querySelector("#your-message");
@@ -42,7 +44,9 @@ const talkingUser = () => {
       userMessage.value=''
       setTimeout(welcomeVisitor,8000)
     });
+  }
 }
+
 
 
 
@@ -51,5 +55,5 @@ const talkingUser = () => {
 // that triggers - send information to the document
 // add information to the dom (appends to the list)
 // then insert inforamtion to the client side
+export { talkingUser }
 
-export {talkingUser }
