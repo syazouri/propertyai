@@ -2,85 +2,21 @@
 
 
   <div class="area-banner" style="background-image: url(<%= image_path "shoreditch/boxpark.jpg" %>)">
-      <div class="container">
-        <h1 class="text-center"><%= @area.name.upcase %></h1>
-      </div>
-     </div>
+    <div class="container">
+      <h1 class="text-center"><%= @area.name.upcase %></h1>
+    </div>
+  </div>
 
 <div class="container">
-    <div class="area-show-container">
-      <h2> Price</h2>
-    <p><%="Average  price last 5 years in #{@area.name.capitalize}" %></p>
-    <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
 
 
-  <%= render "price_change" %>
+  <%= render "price" %>
 
+  <%= render "crime" %>
 
+  <%= render "school" %>
 
-</div>
-
-
-    <div class="area-show-container">
-      <h2>Crime Rate</h2>
-        <p><%="Breakdown of crime by type for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
-        <%= bar_chart @area.crime["types"],  xtitle: "per 1000 pop", ytitle: "Type of Crime" %>
-
-
-      <div class="area-show-crime my-3">
-        <div>
-          <h2>Crime Overview</h2>
-          <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
-          <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
-          <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
-        </div>
-
-        <div>
-            <h2>Observations</h2>
-        <ul>
-        <% @area.crime["observations"].each do |ob| %>
-        <li> <%= ob %></li>
-        <% end %>
-        </ul>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="area-show-container">
-      <h2>Schools</h2>
-      <div>
-        <div
-          id="map"
-          style="width: 100%;
-          height: 300px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
-        <div class="area-school-info">
-          <h2>Click on marker to view school information </h2>
-        </div>
-      </div>
-    </div>
-
-    <div class="area-show-container">
-      <h2>Demograpics</h2>
-      <div class="my-3">
-       <p><%="Breakdown of population by age for #{@area.name.capitalize}" %></p>
-       <%= column_chart @area.demographics["data"]["age"], xtitle: "Age range", ytitle: "% of pop" %>
-      </div>
-
-      <div class="area-show-crime">
-        <div>
-          <p><%="Political vote last election for #{@area.name.capitalize}" %></p>
-        <%= pie_chart @area.demographics["data"]["politics"]["results"] %>
-        </div>
-
-        <div>
-          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
-          <%= pie_chart @area.demographics["data"]["social_grade"]   %>
-        </div>
-    </div>
+  <%= render "demographics" %>
 
 </div>
 

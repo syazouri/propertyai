@@ -1,2 +1,16 @@
-<p>this is a test school data</p>
+   <div class="area-show-container">
+      <h2>Schools</h2>
+      <div>
+        <div
+          id="map"
+          style="width: 100%;
+          height: 300px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+        <div class="area-school-info">
+          <h2>Click on marker to view school information </h2>
+        </div>
+      </div>
+    </div>
 
