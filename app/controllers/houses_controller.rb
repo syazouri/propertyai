@@ -28,7 +28,11 @@ class HousesController < ApplicationController
       }
     end
     @markers << house_coordinates
-end
+  end
+
+  def contact
+
+  end
 
   private
 
@@ -40,4 +44,3 @@ end
     @house = House.find(params[:id])
   end
 end
-
