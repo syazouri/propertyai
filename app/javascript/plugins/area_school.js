@@ -5,3 +5,6 @@ const schoolMap = document.querySelector("#map");
     schoolAreaInfo.innerHTML =  schoolInfo.innerHTML;
   });
 
+
+export {schoolMap}
+

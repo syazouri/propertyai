@@ -154,7 +154,7 @@ Area.all.each_with_index do |area, i|
           price: area_data["price"],
           photo: photos.pop    #Faker::Restaurant.name
         )
-        house.save!
+        house.save
         p house
         p house.errors.messages
     # end
