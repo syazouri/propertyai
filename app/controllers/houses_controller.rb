@@ -2,8 +2,9 @@ class HousesController < ApplicationController
   before_action :set_house, only: [:show]
 
   def index
+    @area = Area.find(params[:area_id])
     if params[:search].present?
-      @houses = House.all
+      @houses = House.where(area:@area)
       @bedrooms = params[:search][:bedroom].to_i
       @houses = @houses.where(bedroom: @bedrooms) unless @bedrooms.zero?
       @bathrooms = params[:search][:bathroom].to_i
@@ -11,7 +12,7 @@ class HousesController < ApplicationController
       @price = params[:search][:price].to_i
       @houses = @houses.where("price < #{@price}") unless @price.zero?
     else
-      @houses = House.all
+      @houses = House.where(area:@area)
     end
 
     @houses = @houses.geocoded
@@ -23,7 +24,7 @@ class HousesController < ApplicationController
       }
     end
 
-    @area = Area.find(params[:area_id])
+
   end
 
   def show

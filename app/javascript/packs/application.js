@@ -1,11 +1,23 @@
 import "bootstrap";
-import "../plugins/area_show";
-import "../plugins/area_school";
+import { areaToolTip } from "../plugins/area_show";
+import { schoolMap } from "../plugins/area_school";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { agentTalksBack } from './contact';
+import { talkingUser } from './contact';
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+const area = document.querySelector(".area-tooltip");
+if (area) {
+  areaToolTip();
+}
+
+const map = document.querySelector(".area-school-info");
+if (map) {
+  schoolMap();
+}
+
+//schoolMap();
+
 
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");
@@ -27,4 +39,6 @@ function calculateMortgage() {
 }
 calculateMortgage();
 
+
+talkingUser();
 
