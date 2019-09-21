@@ -10,14 +10,14 @@ class AreasController < ApplicationController
 
   def show
     @schools = @area["schools"]["data"]["state"]["nearest"]
-    # @school = @area["schools"]["data"]["state"]["nearest"]
-    # @name = @school[0]["name"]
+
 
      @markers = @schools.map do |school|
       results = Geocoder.search(school["postcode"])
        { lat: results.first.coordinates[0],
          lng: results.first.coordinates[1],
-         infoWindow: render_to_string(partial: "school_map", locals: { school: school  })
+         infoWindow: render_to_string(partial: "school_map", locals: { school: school }),
+         id: "test"
        }
     end
   end

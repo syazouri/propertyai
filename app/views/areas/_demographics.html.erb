@@ -1,0 +1,18 @@
+   <div class="area-show-container">
+      <h2>Demograpics</h2>
+      <div class="my-3">
+       <p><%="Breakdown of population by age for #{@area.name.capitalize}" %></p>
+       <%= column_chart @area.demographics["data"]["age"], xtitle: "Age range", ytitle: "% of pop" %>
+      </div>
+
+      <div class="area-show-crime">
+        <div>
+          <p><%="Political vote last election for #{@area.name.capitalize}" %></p>
+        <%= pie_chart @area.demographics["data"]["politics"]["results"] %>
+        </div>
+
+        <div>
+          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
+          <%= pie_chart @area.demographics["data"]["social_grade"]   %>
+        </div>
+    </div>
