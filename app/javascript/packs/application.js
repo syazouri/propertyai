@@ -1,11 +1,12 @@
 import "bootstrap";
-import "../plugins/area_show";
-import "../plugins/area_school";
+// import "../plugins/area_show";
+// import "../plugins/area_school";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { agentTalksBack } from './contact';
+import { talkingUser } from './contact';
 import { initMapbox } from '../plugins/init_mapbox';
 
 initMapbox();
+
 
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");
@@ -27,4 +28,6 @@ function calculateMortgage() {
 }
 calculateMortgage();
 
+
+talkingUser();
 
