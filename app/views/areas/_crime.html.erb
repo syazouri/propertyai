@@ -1,0 +1,24 @@
+    <div class="area-show-container">
+      <h2>Crime Rate</h2>
+        <p><%="Breakdown of crime by type for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
+        <%= bar_chart @area.crime["types"],  xtitle: "per 1000 population", ytitle: "Type of Crime" %>
+
+
+      <div class="area-show-crime my-3">
+        <div>
+          <h2>Crime Overview</h2>
+          <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
+          <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
+          <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
+        </div>
+
+        <div>
+            <h2>Observations</h2>
+        <ul>
+        <% @area.crime["observations"].each do |ob| %>
+        <li> <%= ob %></li>
+        <% end %>
+        </ul>
+        </div>
+      </div>
+    </div>

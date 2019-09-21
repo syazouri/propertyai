@@ -3,6 +3,8 @@ require 'faker'
 require 'json'
 require 'open-uri'
 
+start_time = Time.now
+
 puts 'Deleteing all data'
 House.destroy_all
 Search.destroy_all
@@ -49,33 +51,34 @@ areas = [
 
 
 areas.each do |area|
-  crime_url = "https://api.propertydata.co.uk/crime?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  p "Creating area"
+  crime_url = "https://api.propertydata.co.uk/crime?key=94CJQWSHBG&postcode=#{area[:postcode]}"
   crime = JSON.parse(open(crime_url).read)
-  sleep(20)
+  sleep(3)
 
-  school_url = "https://api.propertydata.co.uk/schools?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  school_url = "https://api.propertydata.co.uk/schools?key=94CJQWSHBG&postcode=#{area[:postcode]}"
   school = JSON.parse(open(school_url).read)
-  sleep(20)
+  sleep(3)
 
-  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&type=flat&max_age=12"
+  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=94CJQWSHBG&postcode=#{area[:postcode]}&type=flat&max_age=12"
   sold_price = JSON.parse(open(sold_price_url).read)
-  sleep(20)
+  sleep(3)
 
-  demographics_url = "https://api.propertydata.co.uk/demographics?key=HMWJZLCTHF&postcode=W14=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  demographics_url = "https://api.propertydata.co.uk/demographics?key=94CJQWSHBG&postcode=W14=94CJQWSHBG&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
-  sleep(20)
+  sleep(3)
 
-  price_url = "https://api.propertydata.co.uk/prices?key=HMWJZLCTHF&postcode=#{area[:postcode]}&bedrooms=2"
+  price_url = "https://api.propertydata.co.uk/prices?key=94CJQWSHBG&postcode=#{area[:postcode]}&bedrooms=2"
   price = JSON.parse(open(price_url).read)
-  sleep(20)
+  sleep(3)
 
-  growth_url = "https://api.propertydata.co.uk/growth?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  growth_url = "https://api.propertydata.co.uk/growth?key=94CJQWSHBG&postcode=#{area[:postcode]}"
   growth = JSON.parse(open(growth_url).read)
-  sleep(20)
+  sleep(3)
 
-  demand_url = "https://api.propertydata.co.uk/demand?key=HMWJZLCTHF&postcode=#{area[:postcode]}"
+  demand_url = "https://api.propertydata.co.uk/demand?key=94CJQWSHBG&postcode=#{area[:postcode]}"
   demand = JSON.parse(open(demand_url).read)
-  sleep(20)
+  sleep(3)
 
   area = Area.new(
     name: area[:name],
@@ -116,35 +119,46 @@ end
   counter = 0
 end
 
-Area.all.each do |area|
-  council_tax_url = "https://api.propertydata.co.uk/council-tax?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
+photos = ["chelsea_stephen_bayley.jpg", "jube6.jpg", "Marian-Court-620.jpg", "semi-detached-425x265-425x239.jpg", "house1.jpg", "house2.jpg", "house3.jpg", "house4.jpg", "house5.jpg", "house6.jpg"]
+
+Area.all.each_with_index do |area, i|
+  p "Creating house x2"
+  council_tax_url = "https://api.propertydata.co.uk/council-tax?key=94CJQWSHBG&postcode=#{area.area_postcode}"
   council_tax = JSON.parse(open(council_tax_url).read)
-  sleep(20)
+  sleep(3)
 
-  ptal_url = "https://api.propertydata.co.uk/ptal?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
+  ptal_url = "https://api.propertydata.co.uk/ptal?key=94CJQWSHBG&postcode=#{area.area_postcode}"
   ptal = JSON.parse(open(ptal_url).read)
-  sleep(20)
+  sleep(3)
 
-  restaurants_url = "https://api.propertydata.co.uk/restaurants?key=HMWJZLCTHF&postcode=#{area.area_postcode}"
+  restaurants_url = "https://api.propertydata.co.uk/restaurants?key=94CJQWSHBG&postcode=#{area.area_postcode}"
   restaurants = JSON.parse(open(restaurants_url).read)
-  sleep(20)
+  sleep(3)
 
-  area.sold_price["data"]["raw_data"].first(3).each do |house_hash|
-    house = House.new(
-      address: house_hash["address"],
-      postcode: house_hash["address"].split(", ").last,
-      bedroom: rand(1..6),
-      description: Faker::Lorem.paragraph(sentence_count: 2),
-      bathroom: rand(1..2),
-      square_feet:rand(100..300),
-      council_tax: council_tax,
-      ptal: ptal,
-      green_belt: false, # or we could this instead [true, false].sample,
-      area: area,
-      restaurants: restaurants,
-      price: house_hash["price"]     #Faker::Restaurant.name
-    )
-    house.save!
+  unless i > 5
+    2.times do
+      area_data = area.sold_price["data"]["raw_data"].sample
+      # area.sold_price["data"]["raw_data"].first(3).each do |house_hash|
+        house = House.new(
+          address: area_data["address"],
+          postcode: area_data["address"].split(", ").last,
+          bedroom: rand(1..6),
+          description: Faker::Lorem.paragraph(sentence_count: 2),
+          bathroom: rand(1..2),
+          square_feet:rand(100..300),
+          council_tax: council_tax,
+          ptal: ptal,
+          green_belt: false, # or we could this instead [true, false].sample,
+          area: area,
+          restaurants: restaurants,
+          price: area_data["price"],
+          photo: photos.pop    #Faker::Restaurant.name
+        )
+        house.save!
+        p house
+        p house.errors.messages
+    # end
+    end
   end
 end
 
@@ -157,6 +171,8 @@ search = Search.new(
 )
 search.save!
 
+end_time = Time.now
 
+total_time = end_time - start_time
 
-puts 'Finished!'
+puts "Finished in #{total_time} seconds!"

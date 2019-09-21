@@ -2,47 +2,21 @@
 
 
   <div class="area-banner" style="background-image: url(<%= image_path "shoreditch/boxpark.jpg" %>)">
-      <div class="container">
-        <h1 class="text-center"><%= @area.name.upcase %></h1>
-      </div>
-     </div>
+    <div class="container">
+      <h1 class="text-center"><%= @area.name.upcase %></h1>
+    </div>
+  </div>
 
 <div class="container">
-    <div>
-      <h2> Price</h2>
-    <h3>Average Price last 5 years</h3>
-    <%= line_chart @area["growth"]["data"],  xtitle: "Year", ytitle: "Price (£)" %>
-    </div>
-
-    <div>
-      <h2>Crime Rate</h2>
-
-       <div class="area-show-list">
-       <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
-       <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
-       <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
-       </div>
-
-        <%= bar_chart @area.crime["types"],  xtitle: "per 1000 pop", ytitle: "Type of Crime" %>
-
-        <%= link_to "Click here to view crime type definitions" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "button" %>
-
-        <h2>Observations</h2>
-        <ul class='area-show-list'>
-        <% @area.crime["observations"].each do |ob| %>
-        <li> <%= ob %></li>
-        <% end %>
-        </ul>
-
-    </div>
 
 
-        <div
-          id="map"
-          style="width: 100%;
-          height: 300px;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-        ></div>
+  <%= render "price" %>
+
+  <%= render "crime" %>
+
+  <%= render "school" %>
+
+  <%= render "demographics" %>
+
 </div>
 

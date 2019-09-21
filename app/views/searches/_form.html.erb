@@ -1,36 +1,35 @@
-<div class="container">
-  <div class="row ">
-    <div class="col-md-6">
-      <%= simple_form_for(search) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="form-inputs">
-        <%= f.input :gross_annual %>
-        </div>
-        <button type="button" id="multiply">Calculate</button>
-        <input type="hidden" id="max-mortgage" name="max-mortgage">
-        <div class="form-inputs">
-        <%= f.input :distance_to_work, as: :integer %>
-        </div>
-        <div class="form-inputs">
-        <%= f.input :work_postcode %>
-        </div>
+<div class="cards">
+  <div class="card">
+    <%= simple_form_for(search) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs">
+      <%= f.input :gross_annual, label: false, :placeholder => 'Your annual income' %>
     </div>
-    <div class="col-md-6">
-       <h2>About the area </h2>
-       <h3>Which of there are important for you</h3>
-       <div class="search_checkbox">
-         <label>School</label>
-         <%= f.check_box :school  %>
-         <label>Price</label>
-         <%= f.check_box :price %>
-         <label>crime</label>
-          <%= f.check_box :crime %>
-        </div>
-        <div class="form-actions">
-        <%= f.button :submit, class: "button" %>
-        <% end %>
-        </div>
+    
+    <button type="button" id="multiply">Calculate your loan</button>
+    <input type="hidden" id="max-mortgage" name="max-mortgage">
+    <div class="form-inputs">
+      <%= f.input :distance_to_work, as: :integer, :placeholder => 'Preferred distance from work in miles)' %>
+    </div>
+    <div class="form-inputs">
+      <%= f.input :work_postcode %>
+    </div>
+  </div>
+  <div class="card">
+    <h2>About the area </h2>
+    <h3>Which of there are important for you</h3>
+    <div class="search_checkbox">
+      <label>School</label>
+      <%= f.check_box :school  %>
+      <label>Price</label>
+      <%= f.check_box :price %>
+      <label>crime</label>
+      <%= f.check_box :crime %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+      <% end %>
     </div>
   </div>
 </div>

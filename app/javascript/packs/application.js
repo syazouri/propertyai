@@ -1,5 +1,6 @@
 import "bootstrap";
 import "../plugins/area_show";
+import "../plugins/area_school";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { agentTalksBack } from './contact';
 import { initMapbox } from '../plugins/init_mapbox';

@@ -1,3 +1,14 @@
 <%= school["name"]%>
 
+<div  class="school-info" style="display: none;" >
+  <br><%= "School Name: #{school["name"]}"%>
+  <br><%= "School Type: #{school["type"]}"%>
+  <br><%= "School Phase: #{school["phase"]}"%>
+  <br><%= "School Rating: #{school["rating"]}"%>
+  <br><%= "School Number of Pupils: #{school["num_pupils"]}"%>
+  <br><%= "Date of last Ofsted inspection #{school["inspection_start"]}"%>
+  <br><a href="<%=school["url"]%>" target="_blank">Link to Ofsted Report</a>
+</div>
+
+
 

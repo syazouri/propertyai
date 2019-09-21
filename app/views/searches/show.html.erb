@@ -5,11 +5,21 @@
 <div class="card">
 <!-- <p>waiting search page </p> -->
 <%#= 'select area', area_path%>
-
-<% @areas.each do |area| %>
-<!-- this  -->
-  <h1><%= area.name %> Price: <%= area.sold_price["data"]["average"] %></h1>
-<% end %>
-
-</div>
+  <div class="row">
+    <% photos = ["catarea.jpeg", "shoreditch/boxpark.jpg", "birdarea.jpg"] %>
+    <% @areas.each do |area| %>
+      <div class='col-xs-12 col-sm-4'>
+        <div class="card-area">
+        <%= image_tag photos.pop %>
+          <%= link_to area_path(area) do  %>
+            <div class="card-area-footer">
+              <p><%= area.name.upcase %></p>
+              <br>
+              <p>Average house price: £<%= number_with_delimiter(area.sold_price["data"]["average"]) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
