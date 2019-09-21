@@ -22,7 +22,7 @@ if (submit) {
     e.preventDefault();
     const userMessage = document.querySelector("#your-message").value;
     addMessageToForm(userMessage);
-    setTimeout(welcomeVisitor,10000)
+    setTimeout(welcomeVisitor,8000)
   });
 }
 
