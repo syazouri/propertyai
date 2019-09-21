@@ -119,7 +119,7 @@ end
   counter = 0
 end
 
-photos = ["chelsea_stephen_bayley.jpg", "jube6.jpg", "Marian-Court-620.jpg", "semi-detached-425x265-425x239.jpg", "house1.jpg", "house2.jpg", "house3.jpg", "house4.jpg", "house5.jpg", "house6.jpg"]
+photos = ["chelsea_stephen_bayley.jpg", "jube6.jpg", "Marian-Court-620.jpg", "semi-detached-425x265-425x239.jpg", "house1.jpg", "house2.jpg", "house3.jpg", "house4.jpg", "house5.jpg", "house6.jpg", "house7.jpg", "house8.jpg", "house9.jpg", "house10.jpg", "house11.jpg", "house12.jpg", "house13.jpg", "house14.jpg", "house15.jpg", "house16.jpg", "house17.jpg", "house18.jpg", "house19.jpg", "house20.jpg", "house21.jpg", "house22.jpg", "house23.jpg", "house24.jpg", "house25.jpg", "house26.jpg", "house27.jpg", "house28.jpg", "house29.jpg", "house30.jpg", "house31.jpg", "house32.jpg", "house33.jpg", "house34.jpg", "house35.jpg", "house36.jpg", "house37.jpg", "house38.jpg", "house39.jpg", "house40.jpg", "house41.jpg"]
 
 Area.all.each_with_index do |area, i|
   p "Creating house x2"
@@ -135,8 +135,8 @@ Area.all.each_with_index do |area, i|
   restaurants = JSON.parse(open(restaurants_url).read)
   sleep(3)
 
-  unless i > 5
-    2.times do
+  # unless i > 5
+    9.times do
       area_data = area.sold_price["data"]["raw_data"].sample
       # area.sold_price["data"]["raw_data"].first(3).each do |house_hash|
         house = House.new(
@@ -154,12 +154,12 @@ Area.all.each_with_index do |area, i|
           price: area_data["price"],
           photo: photos.pop    #Faker::Restaurant.name
         )
-        house.save!
+        house.save
         p house
         p house.errors.messages
     # end
     end
-  end
+  # end
 end
 
 search = Search.new(
