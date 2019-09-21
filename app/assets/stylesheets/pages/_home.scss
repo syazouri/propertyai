@@ -1,25 +1,26 @@
 body {
-  background: #DCE3F7;
+  // background: #DCE3F7;
+background-image: url("brick.jpg");
 }
 
 .banner {
-  background-image: url("background.jpg");
+  background: transparent;
   background-size: cover;
   background-position: center;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 14px;
 }
 
-.intro > h1 {
-  color: white;
+.banner > h1 {
+  color: black;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
 }
 
-.intro > p {
+.banner > p {
   font-size: 20px;
-  color: white;
+  color: black;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -34,18 +35,21 @@ body {
   margin-left: 30px;
   padding-top: 50px;
   padding-bottom: 50px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+}
+
+.radius{
+  border-radius: 14px;
 }
 
 .quick_search {
   text-align: center;
+  background: rgba(220, 227, 247, 0.6);
+  border-radius: 14px;
 }
 
 .form-group {
-  border-bottom: 2px solid #787c86;
-  color: #787c86;
+  border-bottom: 2px solid black;
+  color: black;
   width: 300px;
   margin-left: auto;
   margin-right: auto;
@@ -77,4 +81,15 @@ ul {
 .carousel-item > img {
   width: 370px;
   height: 250px;
+  border-radius: 14px;
+}
+
+.radius-right {
+  border-top-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.radius-left {
+  border-top-left-radius: 14px;
+  border-bottom-left-radius: 14px;
 }
