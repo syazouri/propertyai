@@ -6,7 +6,7 @@ if (areaPopOver) {
 }
 
 const areaToolTip = document.querySelector(".area-tooltip");
-// if (areaToolTip) {
+if (areaToolTip) {
   $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
   });

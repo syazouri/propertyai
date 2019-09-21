@@ -7,8 +7,8 @@
   // add the response message
 
 
-const messageForm = document.querySelector('#comment-form');
-const messageList = document.querySelector('#messages ul');
+const messageForm = document.querySelector('.comment-form');
+const messageList = document.querySelector('.messages ul');
 
 const addMessageToForm = (message) => {
   const newMessage = `<li>${message}</li>`;

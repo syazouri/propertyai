@@ -1,3 +1,9 @@
+.area-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .card-area {
   background: white;
   // margin: 16px;
@@ -38,3 +44,4 @@
   justify-content: space-evenly;
   align-items: center;
 }
+
