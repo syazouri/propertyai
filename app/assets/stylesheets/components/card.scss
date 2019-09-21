@@ -4,14 +4,16 @@
   padding-bottom: 20px;
 }
 
-.cards {
+.cards-base {
   margin: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   border-radius: 14px;
 }
 
 .card {
-   background: white;
+   background: rgba(220, 227, 247, 0.6);
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -21,10 +23,11 @@
 }
 
 .card > img {
-  width: 100%;
+  width: 370px;
   height: 250px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 14px;
 }
 
 
@@ -33,6 +36,9 @@
   margin-left: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: transparent;
+   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+   border-radius: 14px;
 }
 
 .cards_signup{
@@ -40,6 +46,11 @@
   margin-left: 200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  background: transparent;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 14px;
 }
 
 .logo {
@@ -47,9 +58,17 @@
 }
 
 .signup {
-  padding: 70px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .login {
-  padding-top: 40px;
+  padding-top: auto;
+  padding-bottom: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.border-radius{
+  border-radius: 14px;
 }

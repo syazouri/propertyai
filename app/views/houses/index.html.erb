@@ -1,22 +1,24 @@
 <div class="container">
   <h1 id="title">List of Properties</h1>
+  <br>
 
   <!-- <input type=”text” name=”query” id=”query”> -->
-  <p>Bedrooms</p>
-  <select name="Bedrooms">
-    <option value="one">1</option>
-    <option value="two">2</option>
-    <option value="three">3</option>
-    <option value="four">4+</option>
-  </select>
 
+  <div class = "house-form-search">
+  <div class="row">
+  <div class="col-12 col-md-8 form-left"><%= simple_form_for :search, url: area_houses_path(@area), method: :get do |f| %>
+  <%= f.input :bedroom, collection: 1..6 %>
+  <%= f.input :bathroom, collection: 1..3 %>
+  <%= f.input :price, :label => "Price less than", collection: [300000, 400000, 500000, 600000, 700000, 800000, 900000, 1000000] %></div>
+  <div class="col-6 col-md-4 form-right"><%= f.button :submit, 'Search', :class => "form-button" %>
+    <% end %></div>
+  </div>
+</div>
 
-  <p>Bathrooms</p>
-  <select name="Bathrooms">
-    <option value="one">1</option>
-    <option value="two">2+</option>
-  </select>
-  <button type="button">Search</button>
+  <% if @houses.empty?%>
+  <h7>No results match your search</h7>
+  <% end %>
+  <br>
 
   <div class="cards">
     <% @houses.each do |house| %>

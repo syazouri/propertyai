@@ -1,36 +1,39 @@
 <h2>Sign up</h2>
 
 <div class="cards_signup">
-  <div class="card">
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-  </div>
-  <div class="card signup">
-    <div>
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "button"%>
-    </div>
-      <% end %>
-    <div>
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
-  <br />
-  <div class="logo">
-      <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/facebook_yvdlks.png") %>
-      <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/instagram_b4pev2.png") %>
-      <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920332/assets/gmail_ovvnvi.png") %>
-  </div>
-  </div>
+        <div class="card radius-left">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= f.error_notification %>
+            <%= f.input :email,
+            required: true,
+            autofocus: true,
+            input_html: { autocomplete: "email" }, label: false, :placeholder => 'Email'%>
+            <br />
+            <%= f.input :password,
+            required: true,
+            input_html: { autocomplete: "new-password" },
+            label: false, :placeholder => 'Password (Min 6 characters)' %>
+            <br />
+            <%= f.input :password_confirmation,
+            required: true,
+            input_html: { autocomplete: "new-password" },
+            label: false, :placeholder => 'Confirm password (Min 6 characters)' %>
+        </div>
+        <div class="card signup radius-right">
+            <div>
+                <div class="form-actions">
+                <%= f.button :submit, "Sign up", class: "button"%>
+                </div>
+                <% end %>
+                <div>
+                <%= render "devise/shared/links" %>
+                </div>
+            </div>
+            <br />
+            <div class="logo">
+                <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/facebook_yvdlks.png") %>
+                <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/instagram_b4pev2.png") %>
+                <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920332/assets/gmail_ovvnvi.png") %>
+            </div>
+        </div>
 </div>

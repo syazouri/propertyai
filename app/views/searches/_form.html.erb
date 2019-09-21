@@ -1,34 +1,43 @@
-<div class="cards">
-  <div class="card">
+<div class="cards_login">
+  <div class="card radius-left">
     <%= simple_form_for(search) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <br />
     <div class="form-inputs">
       <%= f.input :gross_annual, label: false, :placeholder => 'Your annual income' %>
+    <br />
     </div>
     
     <button type="button" id="multiply">Calculate your loan</button>
+    <br />
     <input type="hidden" id="max-mortgage" name="max-mortgage">
+    <br />
     <div class="form-inputs">
-      <%= f.input :distance_to_work, as: :integer, :placeholder => 'Preferred distance from work in miles)' %>
+      <%= f.input :distance_to_work, as: :integer, label: false, :placeholder => 'Distance from work in miles' %>
     </div>
+    <br />
     <div class="form-inputs">
-      <%= f.input :work_postcode %>
+      <%= f.input :work_postcode, label: false, :placeholder => 'Postcode of your work'%>
     </div>
+    <br />
   </div>
-  <div class="card">
+  <div class="card radius-right">
     <h2>About the area </h2>
-    <h3>Which of there are important for you</h3>
+    <h3>Which of there are<br />important for you</h3>
     <div class="search_checkbox">
       <label>School</label>
       <%= f.check_box :school  %>
+      <br />
       <label>Price</label>
       <%= f.check_box :price %>
-      <label>crime</label>
+      <br />
+      <label>Low crime</label>
       <%= f.check_box :crime %>
+      <br />
     </div>
     <div class="form-actions">
-      <%= f.button :submit %>
+      <%= f.button :submit, class: "button" %>
       <% end %>
     </div>
   </div>

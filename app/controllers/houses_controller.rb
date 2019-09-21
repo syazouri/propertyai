@@ -3,12 +3,18 @@ class HousesController < ApplicationController
 
   def index
     if params[:search].present?
-      @houses = House.perform_search(params[:search])
+      @houses = House.all
+      @bedrooms = params[:search][:bedroom].to_i
+      @houses = @houses.where(bedroom: @bedrooms) unless @bedrooms.zero?
+      @bathrooms = params[:search][:bathroom].to_i
+      @houses = @houses.where(bathroom: @bathrooms) unless @bathrooms.zero?
+      @price = params[:search][:price].to_i
+      @houses = @houses.where("price < #{@price}") unless @price.zero?
     else
       @houses = House.all
     end
 
-    @houses = House.geocoded
+    @houses = @houses.geocoded
     @markers = @houses.map do |house|
       {
         lat: house.latitude,
@@ -16,6 +22,8 @@ class HousesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window_house", locals: { house: house })
       }
     end
+
+    @area = Area.find(params[:area_id])
   end
 
   def show
