@@ -36,6 +36,7 @@ const welcomeVisitor =()=> {
 }
 
 const talkingUser = () => {
+  if (messageForm) {
     messageForm.addEventListener("submit", (e) => {
       e.preventDefault();
       const userMessage = document.querySelector("#your-message");
@@ -43,7 +44,9 @@ const talkingUser = () => {
       userMessage.value=''
       setTimeout(welcomeVisitor,8000)
     });
+  }
 }
+
 
 
 
@@ -52,5 +55,5 @@ const talkingUser = () => {
 // that triggers - send information to the document
 // add information to the dom (appends to the list)
 // then insert inforamtion to the client side
+export { talkingUser }
 
-export {talkingUser }

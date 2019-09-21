@@ -1,8 +1,6 @@
-const areaToolTip = document.querySelector(".area-tooltip");
-if (areaToolTip) {
+const areaToolTip = () => {
   $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
+   $('[data-toggle="tooltip"]').tooltip();
   });
 }
-
 export {areaToolTip}
