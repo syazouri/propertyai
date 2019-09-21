@@ -1,83 +1,66 @@
 
 
   <div class="banner">
-    <div class="intro">
+    <div class='card radius'>
       <h1>Welcome to <strong>Property AI</strong>!</h1>
       <p>Here in this website our goal is to help you find your dream house. But not just that... The dream house in the dream neighbourhood. </p>
       <br />
       <div class="btn btn-main">
-      <%= link_to'Let\'s get you started!', new_search_path, class: "button" %>
+      <%= link_to'Let\'s get you started', new_search_path, class: "button" %>
       </div>
     </div>
-    <form class="quick_search">
-      <h3>Quick Search</h3>
-      <br />
-      <div class="form-group">
-        <input type="email" class="form-control" placeholder="Area">
-      </div>
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Your budget">
-      </div>
-      <br />
-      <div class="btn btn-main">
-        <%= link_to'Search', new_user_session_path, class: "button" %>
-      </div>
-    </form>
   </div>
 
 
-<div class="cards">
-  <div class="card">
-    <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/area2_eftyxj.png") %>
+<div class="cards-base">
+  <div class="card radius-left">
+    <%= image_tag('house4.gif') %>
+    <br />
+    <h5 class="card-title"></h5>
+  </div>
+  <div class="card radius-right">
+    <%= image_tag('house3.gif') %>
+    <br />
+    <h5 class="card-title">We make your search easier</h5>
+  </div>
+  <div class="card radius-left">
+    <%= image_tag('house.gif') %>
+    <br />
     <h5 class="card-title">We bring property search to the next level</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card">
-    <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/area3_dehigd.png") %>
-    <h5 class="card-title">Searching your dream house, not just about how many bathrooms you want</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card">
-    <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568920331/assets/area1_f16m1h.png") %>
-    <h5 class="card-title">Detailed neighbourhood chekcking</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
 </div>
 
 <h2 class="cards_header">Most popular areas</h2>
-<div class="cards">
-  <div class="card">
+<div class="cards-base">
+  <div class="card radius-left">
     <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568919205/areas/camden_sqpnfr.jpg") %>
-    <ul class="list_item">
-      <li><strong>Camden</strong></li>
-      <li>Crime rate: </li>
-      <li>Average sold price: </li>
-      <li>Schools near by: </li>
-    </ul>
+    <br />
+      <p><strong>Camden</strong></p>
+      <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
 <div class="card">
   <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568919205/areas/hackney_wm9jn1.jpg") %>
-  <ul class="list_item">
-      <li><strong>Hackney</strong></li>
-      <li>Crime rate: </li>
-      <li>Average sold price: </li>
-      <li>Schools near by: </li>
-    </ul>
+  <br />
+      <p><strong>Hackney</strong></p>
+      <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
-<div class="card">
+<div class="card radius-right">
   <%= cl_image_tag("https://res.cloudinary.com/dehjzta08/image/upload/v1568919196/areas/wandsworth_vri1rf.jpg") %>
-  <ul class="list_item">
-      <li><strong>Wandsworth</strong></li>
-      <li>Crime rate: </li>
-      <li>Average sold price: </li>
-      <li>Schools near by: </li>
-    </ul>
+  <br />
+      <p><strong>Wandsworth</strong></p>
+      <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
 </div>
 
 <h2 class="cards_header">Recently added houses</h2>
-<div class="cards">
-  <div class="card">
+<div class="cards-base">
+  <div class="card radius-left">
     <div class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -95,7 +78,10 @@
       </div>
     </div>
     <br />
-    <p><strong>12 St. Peter's street<br />CAMDEN</strong></p>
+    <p>12 St. Peter's street<br /><strong>CAMDEN</strong><br />for £492,176</p>
+    <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
   <div class="card">
     <div class="carousel slide" data-ride="carousel">
@@ -115,9 +101,12 @@
       </div>
     </div>
      <br />
-    <p><strong>89 King Road<br />WANDSWORTH</strong></p>
+    <p>89 King Road<br /><strong>WANDSWORTH</strong><br />for £515,263</p>
+    <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
-  <div class="card">
+  <div class="card radius-right">
     <div class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -135,7 +124,10 @@
       </div>
     </div>
      <br />
-    <p><strong>354 Huffelpuff Road<br />LAMBETH</strong></p>
+    <p>354 Huffelpuff Road<br /><strong>LAMBETH</strong><br />for £478,853</p>
+    <div class="btn btn-main">
+      <%= link_to'More info', new_search_path, class: "button" %>
+      </div>
   </div>
 </div>
 

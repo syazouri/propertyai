@@ -74,4 +74,42 @@ h8 {
     box-shadow: inset 1px 1px 1px #DFDFDF;
 }
 
+.form-button {
+  display: inline-block;
+  color: white;
+  background-color: #FF4A1C;
+  border: 1px solid #FF4A1C;
+  padding: 8px 44px;
+  border-radius: 150px;
+  font-weight: lighter;
+  opacity: 0.8;
+  transition: opacity 0.1s ease;
+  margin: 5px;
+  font-size: 20px;
+}
+
+.form-button:hover {
+  opacity: 1;
+  color: white;
+}
+
+.form-right {
+  text-align: left;
+  margin-top: 120px;
+}
+
+.form-left {
+  text-align: left;
+  padding: 20px;
+  /*margin-right: 100px;*/
+  /*margin-left: 40px;*/
+}
+
+.house-form-search {
+  border-radius: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(169, 169, 169);
+  background-color: #ffffff;
+}
 
