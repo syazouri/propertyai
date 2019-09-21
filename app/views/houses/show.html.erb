@@ -9,7 +9,8 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag "shoreditch/boxpark.jpg", class: "d-block w-100 area-img" %>
+      <% bathrooms = ['house35.jpg', 'house9.jpg'] %>
+      <%= image_tag "houses/#{bathrooms.sample}", class: "d-block w-100 area-img" %>
     </div>
     <div class="carousel-item">
       <%= image_tag "shoreditch/boxpark.jpg", class: "d-block w-100 area-img" %>

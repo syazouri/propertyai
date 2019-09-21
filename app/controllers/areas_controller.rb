@@ -9,6 +9,7 @@ class AreasController < ApplicationController
   end
 
   def show
+    @homes = House.where(area_id: @area)
     @schools = @area["schools"]["data"]["state"]["nearest"]
 
 

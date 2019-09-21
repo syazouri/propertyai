@@ -1,13 +1,6 @@
-const areaPopOver = document.querySelector(".area-popover");
-if (areaPopOver) {
+const areaToolTip = () => {
   $(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
+   $('[data-toggle="tooltip"]').tooltip();
   });
 }
-
-const areaToolTip = document.querySelector(".area-tooltip");
-// if (areaToolTip) {
-  $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip();
-  });
-// }
+export {areaToolTip}

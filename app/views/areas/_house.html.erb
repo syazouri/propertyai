@@ -1,0 +1,12 @@
+<% @homes.each do |home| %>
+<div class="card-area-home">
+  <%= image_tag "shoreditch/boxpark.jpg"%>
+  <div class="card-area-home-footer">
+    <div>
+      <%= @homes.count %>
+    <p><%= home.address %></p>
+    <p><%= home.postcode %></p>
+  </div>
+</div>
+</div>
+<% end %>
