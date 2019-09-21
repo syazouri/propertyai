@@ -1,8 +1,8 @@
 .area-show-container {
-  background-color: white;
+  background-color: rgba(220, 227, 247, 0.6);
   margin: 32px;
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 14px;
   border-style: solid;
   border-color: rgb(200,200,200);
   border-width: 2px;
@@ -12,10 +12,47 @@
   text-decoration: none;
 }
 
+.area-show-container h2 {
+  font-weight: bolder;
+  background-color: #A62639;
+  padding: 8px 24px;
+  color: white;
+  border-radius: 14px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.area-school-info p {
+  font-weight: bolder;
+  background-color: #A62639;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 14px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.school-infos {
+  text-align: center;
+  font-size: 20px;
+}
+
+.school-infos h3 {
+  font-weight: bolder;
+}
+
+.area-show-container p {
+  font-weight: bolder;
+}
+
 .area-show-crime {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.area-show-crime p {
+  font-size: 16px;
 }
 
 table {
@@ -31,5 +68,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: rgb(200,200,200);
+  background-color: rgba(120,120,120,0.6);
+  border-radius: 14px;
 }
+

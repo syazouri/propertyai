@@ -1,7 +1,9 @@
     <div class="area-show-container">
       <h2>Crime Rate</h2>
-        <p><%="Breakdown of crime by type for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
-        <%= bar_chart @area.crime["types"],  xtitle: "per 1000 population", ytitle: "Type of Crime" %>
+
+        <%= bar_chart @area.crime["types"], title: "Breakdown of crime by type",  xtitle: "per 1000 population", ytitle: "Type of Crime" %>
+
+        <p class="text-center"><%="Crime Type Definitions" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
 
 
       <div class="area-show-crime my-3">

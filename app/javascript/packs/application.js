@@ -1,6 +1,7 @@
 import "bootstrap";
 import { areaToolTip } from "../plugins/area_show";
 import { schoolMap } from "../plugins/area_school";
+import { loadDynamicMarkerText } from '../plugins/area_marker';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { talkingUser } from './contact';
 import { initMapbox } from '../plugins/init_mapbox';
@@ -16,8 +17,10 @@ if (map) {
   schoolMap();
 }
 
-//schoolMap();
-
+const marker = document.querySelector(".area-school-info");
+if (marker) {
+loadDynamicMarkerText();
+}
 
 function calculateMortgage() {
   const calculateBtn = document.getElementById("multiply");
