@@ -9,18 +9,22 @@
 
 const messageForm = document.querySelector('#comment-form');
 const messageList = document.querySelector('#messages ul');
+const submit = document.querySelector("#submit_comment");
+
 
 const addMessageToForm = (message) => {
   const newMessage = `<li>${message}</li>`;
   messageList.insertAdjacentHTML("afterbegin", newMessage)
 }
 
-messageForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const userMessage = document.querySelector("#your-message").value;
-  addMessageToForm(userMessage);
-  setTimeout(welcomeVisitor,10000)
-});
+if (submit) {
+  messageForm.addEventListener(submit, (e) => {
+    e.preventDefault();
+    const userMessage = document.querySelector("#your-message").value;
+    addMessageToForm(userMessage);
+    setTimeout(welcomeVisitor,10000)
+  });
+}
 
 
 const agentTalksBack = () =>{
