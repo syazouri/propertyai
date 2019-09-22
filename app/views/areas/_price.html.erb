@@ -1,7 +1,7 @@
 <div class="area-show-container">
       <h2> Price</h2>
     <p><%#ß="Average  price last 5 years in #{@area.name.capitalize}" %></p>
-    <%= line_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
+    <%= area_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
 
 
  <p class="text-center"><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>

@@ -5,17 +5,20 @@
 
         <p class="text-center"><%="Crime Type Definitions" %> <%= link_to "" , "https://www.met.police.uk/sd/stats-and-data/met/crime-type-definitions/", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Crime Type Definitions"  %></p>
 
-
-      <div class="area-show-crime my-3">
-        <div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <div>
           <h2>Crime Overview</h2>
-          <%= "Crime Rating: #{@area.crime['crime_rating']}" %> <br>
-          <%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %> <br>
-          <%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %>
+          <p><%= "Crime Rating: #{@area.crime['crime_rating']}" %> <%= "Crime Rating: #{@area.crime['crime_rating']}" %></p><br>
+          <p><%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %></p><br>
+          <p><%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %></p>
+        </div>
         </div>
 
+        <div class="col-xs-12 col-md-6 col-lg-6">
         <div>
-            <h2>Observations</h2>
+        <h2>Observations</h2>
         <ul>
         <% @area.crime["observations"].each do |ob| %>
         <li> <%= ob %></li>
@@ -23,4 +26,7 @@
         </ul>
         </div>
       </div>
+        </div>
+      </div>
     </div>
+

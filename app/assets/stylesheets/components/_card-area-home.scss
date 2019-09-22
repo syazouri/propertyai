@@ -9,6 +9,11 @@
   border-width: 2px;
 }
 
+.area-sticky {
+  position: sticky;
+  top: 0;
+}
+
 .card-area-home-footer {
   padding: 16px;
   margin: 0;
@@ -35,3 +40,4 @@
   width: 100%;
   object-fit: cover;
 }
+

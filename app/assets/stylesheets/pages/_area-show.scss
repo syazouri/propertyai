@@ -12,6 +12,15 @@
   text-decoration: none;
 }
 
+.area-show-container ul {
+  padding: 16px;
+  margin: 0px;
+}
+
+.area-show-container p {
+  font-weight: bolder;
+}
+
 .area-show-container h2 {
   font-weight: bolder;
   background-color: #A62639;
@@ -40,14 +49,10 @@
   font-weight: bolder;
 }
 
-.area-show-container p {
-  font-weight: bolder;
-}
-
 .area-show-crime {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-around;
+  // display: flex;
+  // align-items: flex-start;
+  // justify-content: space-around;
   font-size: 20px;
 }
 
