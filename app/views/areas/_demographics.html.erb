@@ -1,19 +1,24 @@
    <div class="area-show-container">
       <h2>Demograpics</h2>
       <div class="my-3">
-       <p><%="Breakdown of population by age for #{@area.name.capitalize}" %></p>
-       <%= column_chart @area.demographics["data"]["age"], xtitle: "Age range", ytitle: "% of pop" %>
+       <p><%#="Breakdown of population by age for #{@area.name.capitalize}" %></p>
+       <%= column_chart @area.demographics["data"]["age"], title: "Breakdown of population by age",xtitle: "Age range", ytitle: "% of pop" %>
       </div>
 
-      <div class="area-show-crime">
-        <div>
-          <p><%="Political vote last election for #{@area.name.capitalize}" %></p>
-        <%= pie_chart @area.demographics["data"]["politics"]["results"] %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-6">
+          <div>
+            <%= pie_chart @area.demographics["data"]["politics"]["results"], title: "Political vote last election"%>
+          </div>
         </div>
 
-        <div>
-          <p><%="Social Grade breakdown for #{@area.name.capitalize}" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
-          <%= pie_chart @area.demographics["data"]["social_grade"]   %>
-        </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+          <%= pie_chart @area.demographics["data"]["social_grade"], title: "Social Grade breakdown"  %>
+          <p class="text-center"><%="Social Grade Definitions" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
+      </div>
     </div>
+ </div>
   </div>
+
+

@@ -1,12 +1,17 @@
 .card-area-home {
-  background: white;
+  background: rgba(220, 227, 247, 0.6);
   margin: 32px 0px;
-  border-radius: 8px;
+  border-radius: 14px;
   overflow: hidden;
   width: 100%;
   border-style: solid;
   border-color: rgb(200,200,200);
   border-width: 2px;
+}
+
+.area-sticky {
+  position: sticky;
+  top: 0;
 }
 
 .card-area-home-footer {
@@ -35,3 +40,4 @@
   width: 100%;
   object-fit: cover;
 }
+

@@ -1,5 +1,3 @@
-
-
 const schoolMap = () => {
   const school = document.querySelector("#map");
   school.addEventListener("click", (event) => {
