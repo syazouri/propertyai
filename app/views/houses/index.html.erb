@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container house-description">
   <h1 id="title">List of Properties</h1>
   <br>
 
@@ -20,7 +20,7 @@
   <% end %>
   <br>
 
-  <div class="cards">
+  <div class="cards house-description">
     <% @houses.each do |house| %>
       <div class="house-card">
         <%= image_tag "houses/#{house.photo}", class: "img" %><br>
