@@ -1,11 +1,18 @@
    <div class="area-show-container">
-      <h2>Demograpics</h2>
-      <div class="my-3">
-       <p><%#="Breakdown of population by age for #{@area.name.capitalize}" %></p>
+    <div>
+      <%= render "shared/jump" %>
+    </div>
+   <h2 id="demographics">Demographics</h2>
+    <div class="container-fluid area-back my-3">
+      <div class="row">
+        <div class="price-chart col-xs-12 col-md-6 col-lg-8">
+         <p><%#="Breakdown of population by age for #{@area.name.capitalize}" %></p>
        <%= column_chart @area.demographics["data"]["age"], title: "Breakdown of population by age",xtitle: "Age range", ytitle: "% of pop" %>
+        </div>
       </div>
+    </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid area-back">
       <div class="row">
         <div class="col-xs-12 col-md-6 col-lg-6">
           <div>
@@ -22,3 +29,4 @@
   </div>
 
 
+<i class="fas fa-bars"></i>

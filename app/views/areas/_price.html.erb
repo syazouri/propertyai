@@ -1,11 +1,22 @@
 <div class="area-show-container">
-      <h2> Price</h2>
-    <p><%#ß="Average  price last 5 years in #{@area.name.capitalize}" %></p>
-    <%= area_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
+  <div>
+<%= render "shared/jump" %>
+</div>
+  <h2 id="price"> Price</h2>
+    <div class="container-fluid area-back">
+      <div class="row">
+        <div class="price-chart col-xs-12 col-md-6 col-lg-8">
+            <p><%#ß="Average  price last 5 years in #{@area.name.capitalize}" %></p>
+            <%= area_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
+        </div>
+      </div>
+    </div>
 
 
- <p class="text-center"><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>
-<div class="my-3">
+<div class="container-fluid area-back my-3">
+  <div class="row">
+    <div class="price-chart col-xs-12 col-md-6 col-lg-8 my-3">
+      <p class="text-center"><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>
  <table>
   <thead>
     <tr>
@@ -28,6 +39,9 @@
   </tbody>
 </table>
 </div>
+  </div>
+</div>
+
 
 
 </div>

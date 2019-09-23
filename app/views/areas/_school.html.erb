@@ -1,14 +1,18 @@
    <div class="area-show-container">
-      <h2>Schools</h2>
+      <div>
+        <%= render "shared/jump" %>
+      </div>
+      <h2 id="schools">Schools</h2>
       <div>
         <div
+          class="area-back"
           id="map"
           style="width: 100%;
           height: 300px;"
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         ></div>
-        <div class="area-school-info">
+        <div class="area-school-info my-3">
           <p><span id="marker-typed-text"></span></p>
         </div>
       </div>
