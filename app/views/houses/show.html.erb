@@ -1,6 +1,7 @@
- <div class="row">
-  <div class="col-8"><h1 id="title">Property Details</h1>
+ <div class="container house-description">
+  <h1 id="title">Property Details</h1>
   <br>
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -9,14 +10,20 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <% bathrooms = ['house35.jpg', 'house9.jpg'] %>
-      <%= image_tag "houses/#{bathrooms.sample}", class: "d-block w-100 area-img" %>
+      <% bedrooms = ['bedroom1.jpg', 'bedroom2.jpg', 'bedroom3.jpg', 'bedroom4.jpg', 'bedroom5.jpg'] %>
+      <%= image_tag "houses/#{bedrooms.sample}", class: "d-block w-100 area-img", style: "width:100%; height: 500px;" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag "shoreditch/boxpark.jpg", class: "d-block w-100 area-img" %>
+      <% bathrooms = ['bathroom1.jpg', 'bathroom2.jpg', 'bathroom3.jpg', 'bathroom4.jpg', 'bathroom5.jpg'] %>
+      <%= image_tag "houses/#{bathrooms.sample}", class: "d-block w-100 area-img", style: "width:100%; height: 500px;" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag "shoreditch/boxpark.jpg", class: "d-block w-100 area-img" %>
+      <% kitchens = ['kitchen1.jpg', 'kitchen2.jpg', 'kitchen3.jpg', 'kitchen4.jpg', 'kitchen5.jpg'] %>
+      <%= image_tag "houses/#{kitchens.sample}", class: "d-block w-100 area-img", style: "width:100%; height: 500px;" %>
+    </div>
+    <div class="carousel-item">
+      <% livings = ['living1.jpg', 'living2.jpg', 'living3.jpg', 'living4.jpg', 'living5.jpg'] %>
+      <%= image_tag "houses/#{livings.sample}", class: "d-block w-100 area-img", style: "width:100%; height: 500px;" %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -28,38 +35,57 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-      <div class= "items">
-        <div class="card-category">
-        </div>
-        <div class="card-category">
-        <br>
-          <ul>
-            <p> Price: £<%= @house.price%></p>
-             <p> Address: <%= @house.address%></p>
-             <p>Postcode: <%= @house.postcode %></p>
-             <p>Bedrooms: <%= @house.bedroom %></p>
-             <p> Bathrooms: <%= @house.bathroom%> </p>
-             <p> Description: <%= @house.description%> </p>
-             <p> Square Feet: <%= @house.square_feet%> </p>
-             <p> Council Tax: </p>
+      <div class= "container">
+          <div>
+            <div class="row">
+              <div class="col-8 house-description-top">
+                <ul>
+                <h2> Price: £<%= number_with_delimiter(@house.price)%></h2>
+                <p> Address: <%= @house.address%></p>
+                <p>Postcode: <%= @house.postcode %></p>
+                <p>Bedrooms: <%= @house.bedroom %></p>
+                <p> Bathrooms: <%= @house.bathroom%> </p>
+                <p> Square Feet: <%= @house.square_feet%> </p>
+                </ul></div>
+              <div class="col-4 house-description-top"><h2> Council Tax</h2>
              <% @house.council_tax["council_tax"].each do |band, value| %>
-              <p><%= band %>: £<%= value %></p>
-             <% end %>
-             <p> Green Belt: <%= @house.green_belt%> </p>
-          </ul>
-          <br>
-      </div>
-    </div>
+              <p><% band %> £<%= value %></p>
+             <% end %></div>
+            </div>
+            <div class="col-6 house-description-top">
+              <% descriptions = ["A lovely newly refurbished apartment with communal gardens on the 1st floor of this beautiful development with off street parking for 1 car. Wood floors throughout and plenty of storage. Well located for access to the varied shops, cafes, restaurants and transport links.", "A superb apartment occupying the raised ground floor of an impressive residence enviably located in the heart of the city. This outstanding home, with high ceilings and large windows, offers flexible and well-proportioned living space centred around a large hallway, a separate kitchen, and a spacious master bedroom. This residence is located in a highly desirable residential tree lined road which is centrally located for the abundance of excellent schools, the numerous restaurants, pavement cafes and boutiques.", "A well proportioned flat located within a small purpose built block, only minutes from the amenities of the area and adjacent to the tube. The apartment is well presented with good sized bedrooms, a modern fully fitted kitchen, and a large reception area leading to the private balcony overlooking the beautifully maintained communal gardens."] %>
+            <h2> Description </h2><p><%= descriptions.sample %></p></div>
+          </div>
     <br>
-</div>
 <br>
-<div class = "col-4"
+<div class = "container"
   id="map"
   style="width: 100%;
   height: 300px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+<div class = "container">
+  <div>
+  <div class="row">
+    <div class="col-4 house-description">
+      <% realtors = ['agent1.jpg', 'agent2.jpg', 'agent3.jpg'] %>
+      <%= image_tag "houses/#{realtors.sample}", class: "d-block w-100 area-img" %>
+    </div>
+  <div class ="col-8 house-description">
+    <% agents = ["We are a highly motivated independent Residential Sales and Lettings Estate Agency established in 1982. We pride ourselves on being a professional, proactive and market leader amongst London Estate Agents, providing a personal service with the ability to think long term. Recommendation and repeat business is an integral part of our company success. We have a strong presence on the internet with our regularly updated website, along with on carefully selected property portals. This guarantees local, national and international exposure for our clients. Our core business is residential Sales, Lettings, New Homes and our Property Management Division. What makes us different? Our comprehensive and in depth knowledge of the areas, a trusted brand, fully bonded members of NAEA and ARLA with a strict code of Conduct, cutting edge technology available to all our negotiators, maximum exposure for all our properties an a highly competitive commission structure.", "We are London's leading agent, established in 1981 and since then we've organically developed from our origins in Notting Hill to cover London and the Home Counties.As one of the most recognisable brands in the capital, we're committed to providing exceptional customer service with an emphasis on professionalism, results, integrity and transparency. We continue to revolutionise the property scene, challenging tradition and improving the way the industry operates through service and technology with a multi-award winning website, strong high street presence and unrivalled marketing.", "Specialising in residential sales, lettings, management and investment portfolios, we offer a tailor made service to suit all our Vendors and Landlords. Our new bespoke website provides a fully interactive service enabling buyers, sellers, tenants and landlords to access all the information on all the properties that they require 24/7. Your favourite Estate Agents in London! We not only offer you some of the best rental accommodation and property sales but are able to proudly compete as one of the leading estate agents in London."] %>
+             <p> <%= agents.sample %></p>
+  <div class="btn btn-main">
+  <%= link_to'Contact Us', new_search_path, class: "button" %>
+  </div>
+  </div>
+
+</div>
+</div>
+</div>
+<div class="btn btn-main">
+      <%= link_to'Back to all Properties', area_houses_path, class: "button" %>
+      </div>
 </div>
 
 
