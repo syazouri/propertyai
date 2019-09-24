@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row justify-content-centre">
         <div class="col-6">
-          <div class="card">
-            <div class="card_head_chat">
+          <div class="card p-0">
+            <div class="card_head_chat mt-0">
              <%= image_tag ("boris_paillard.png"), class: "avatar-bordered", alt: "avatar-bordered" %>
                </p>Housing agent - Boris Paillard</p>
                <div class="icon_chat_chat">
@@ -15,13 +15,12 @@
               <ul class="message-list">
               </ul>
               <div class="card_body_chat">
-                <form action="#" id="comment-form">
+                <form action="#" id="comment-form" class='form-inline'>
                 <div class="form-group">
-                <label for="your-message">Your comment</label>
                 <textarea type="text" name="content" id="your-message" class="form-control" placeholder="Here is my message.."></textarea>
                 </div>
               <div class="card_footer_chat"></div>
-              <input type="submit" value="Send" class="btn btn-primary" id="submit_comment">
+              <input type="submit" value="Send" class="button submit_commentct" id="submit_comment">
                 </form>
         </div>
       </div>
