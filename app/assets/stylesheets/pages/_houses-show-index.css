@@ -15,13 +15,12 @@
     background-repeat:   no-repeat;
     background-size:     cover;
     object-fit: cover;
-    border-radius: 14px;
+    border-radius: 14px 14px 0px 0px;
 }
 
 .house-card {
   grid-gap: 16px;
   margin: 5px auto;
-  padding: 10px;
   grid-template-columns: 65% 35%;
   border-radius: 14px;
   border-width: 1px;
@@ -31,7 +30,9 @@
   transition: box-shadow 0.5s ease-in-out 0s;
   background-color: #ffffff
 }
-
+.house-card-info {
+  padding: 30px;
+}
 .house-card:hover {
     border: 1px #C6C6C6 solid;
     box-shadow: 5px 5px 5px #EAEAEA;
@@ -51,17 +52,19 @@ h7 {
 h8 {
   float: center;
 }
-
+.btn-hold {
+  display: flex;
+  justify-content: center;
+}
 .btn-ghost {
-    color: #444444;
-    background: #F3F3F3;
-    border: 1px #DADADA solid;
-    padding: 5px 10px;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 12pt;
-    outline: none;
-    margin-left: 80px;
+  color: #444444;
+  background: #F3F3F3;
+  border: 1px #DADADA solid;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-weight: bold;
+  font-size: 12pt;
+  outline: none;
 }
 
 .btn-ghost:hover {
@@ -148,6 +151,30 @@ h8 {
   float: center;
 }
 
+.left-card {
+  width: 95%;
+}
+
+.details-container {
+  display: flex;
+}
+
+.council-container {
+  display: flex;
+  .map-container {
+  flex-grow: 1;
+  margin-right: 20px;
+  }
+}
+
+.left-side {
+  padding: 20px;
+  margin-top: 0px;
+  width: 30%;
+}
+
+
+
 .hamburger {
   vertical-align: middle;
 }
@@ -178,4 +205,33 @@ h8 {
 }
 
 
+.card-width {
+  width: 30%;
+}
 
+.card-houses-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  align-content: right;
+  text-align: center;
+}
+
+.special-card {
+  border-radius: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: darkgray;
+  border-image: initial;
+  transition: box-shadow 0.5s ease-in-out 0s;
+  background-color: #ffffff;
+}
+
+.special-card:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 5px 5px 5px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}

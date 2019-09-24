@@ -22,13 +22,17 @@
 
   <div class="cards house-description">
     <% @houses.each do |house| %>
-      <div class="house-card">
+      <div class="special-card">
         <%= image_tag "houses/#{house.photo}", class: "img" %><br>
-        <h7 class = house-price>£<%= number_with_delimiter(house.price)%></h7>
-        <p><i class="fas fa-map-marked-alt">&nbsp;</i><%= house.address%></p>
-        <p><i class="fas fa-bed">&nbsp;</i> <%= house.bedroom%></p>
-        <p><i class="fas fa-bath">&nbsp;</i> <%= house.bathroom%></p>
-        <h8><%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn-ghost"%></h8>
+        <div class="house-card-info">
+          <h7 class = house-price>£<%= number_with_delimiter(house.price)%></h7>
+          <p><i class="fas fa-map-marked-alt">&nbsp;</i><%= house.address%></p>
+          <p><i class="fas fa-bed">&nbsp;</i> <%= house.bedroom%></p>
+          <p><i class="fas fa-bath">&nbsp;</i> <%= house.bathroom%></p>
+          <div class="btn-hold">
+          <h8><%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn-ghost"%></h8>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>

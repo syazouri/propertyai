@@ -1,12 +1,16 @@
 <div class="area-sticky">
     <% @homes.each do |home| %>
       <div class="card-area-home-new house-card" style="margin: 32px;">
-        <%= image_tag "houses/#{home.photo}", class: "img" %><br>
-        <h7>£<%= number_with_delimiter(home.price)%></h7>
-        <p><%= home.address%></p>
-        <p>Bedrooms: <%= home.bedroom%></p>
-        <p>Bathroom: <%= home.bathroom%></p>
-        <h8><%= link_to 'See Property', area_house_path(home.area_id, home),class: "btn-ghost"%></h8>
+        <%= image_tag "houses/#{home.photo}", class: "img" %><br><br>
+        <div class="house-card-info">
+          <h7>£<%= number_with_delimiter(home.price)%></h7>
+          <p><i class="fas fa-map-marked-alt">&nbsp;</i><%= home.address%></p>
+          <p><i class="fas fa-bed">&nbsp;</i><%= home.bedroom%></p>
+          <p><i class="fas fa-bath">&nbsp;</i><%= home.bathroom%></p>
+          <div class="btn-hold">
+            <h8><%= link_to 'See Property', area_house_path(home.area_id, home),class: "btn-ghost"%></h8>
+          </div>
+        </div>
       </div>
     <% end %>
 </div>
