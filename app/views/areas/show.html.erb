@@ -1,7 +1,7 @@
 <%= javascript_pack_tag "chart" %>
 
 
-  <div class="area-banner" style="background-image: url(<%= image_path "shoreditch/boxpark.jpg" %>)">
+  <div class="area-banner" style="background-image: url(<%= image_path @area.image %>)">
     <div class="container-fluid">
       <h1 class="text-center"><%= @area.name.upcase %></h1>
     </div>
@@ -29,7 +29,6 @@
     </div>
  </div>
 </div>
-
 
   <%#= render "price" %>
 
