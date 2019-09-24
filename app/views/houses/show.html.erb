@@ -1,7 +1,7 @@
  <div class="container house-description">
   <h1 id="title">Property Details</h1>
   <br>
-
+<h2 class = house-price>£<%= number_with_delimiter(@house.price)%></h2>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -40,16 +40,16 @@
             <div class="row">
               <div class="col-8 house-description-top">
                 <ul>
-                <h2> Price: £<%= number_with_delimiter(@house.price)%></h2>
-                <p> Address: <%= @house.address%></p>
-                <p>Postcode: <%= @house.postcode %></p>
-                <p>Bedrooms: <%= @house.bedroom %></p>
-                <p> Bathrooms: <%= @house.bathroom%> </p>
-                <p> Square Feet: <%= @house.square_feet%> </p>
+                <h2 class = house-price><i class="fas fa-pound-sign">&nbsp;</i><%= number_with_delimiter(@house.price)%></h2>
+                <p><i class="fas fa-map-marked-alt">&nbsp;</i>Address: <%= @house.address%></p>
+                <!-- <p>Postcode: <%= @house.postcode %></p> -->
+                <p><i class="fas fa-bed">&nbsp;</i>Bedrooms: <%= @house.bedroom %></p>
+                <p><i class="fas fa-bath">&nbsp;</i>Bathrooms: <%= @house.bathroom%> </p>
+                <p><i class="fas fa-ruler">&nbsp;</i>Square Feet: <%= @house.square_feet%> </p>
                 </ul></div>
               <div class="col-4 house-description-top"><h2> Council Tax</h2>
              <% @house.council_tax["council_tax"].each do |band, value| %>
-              <p><% band %> £<%= value %></p>
+              <p class = council><% band %> £<%= value %></p>
              <% end %></div>
             </div>
             <div class="col-6 house-description-top">

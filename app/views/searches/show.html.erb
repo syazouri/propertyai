@@ -1,6 +1,6 @@
 
-
-
+<div class="container house-description">
+  <h1 id="title">Recommended Areas</h1>
 <div class="cards_signup">
 <div class="card">
 <!-- <p>waiting search page </p> -->
@@ -8,7 +8,7 @@
   <div class="row">
     <% photos = ["houses/place1.jpeg", "houses/place2.jpg", "houses/place3.jpg"] %>
     <% @areas.each do |area| %>
-      <div class='col-xs-12 col-sm-4'>
+      <div class='col'>
         <div class="card-area">
         <%= image_tag photos.pop %>
           <%= link_to area_path(area) do  %>
