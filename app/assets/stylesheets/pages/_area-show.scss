@@ -13,8 +13,8 @@
 }
 
 .area-show-container ul {
-  padding: 16px;
-  margin: 0px;
+  // padding: 16px;
+  // margin: 0px;
 }
 
 .area-show-container p {
@@ -100,16 +100,36 @@ tr:nth-child(even) {
 }
 
 .fa-bars:before {
-  color: #A62639;
+  color: white;
   font-size: 24px;
 }
 
 .fa-bars:after {
-  color: #A62639;
+  color: white;
   font-size: 24px;
 }
 
 .jump-menu {
   right: auto;
   left: 0px;
+}
+
+.jump-menu a:hover {
+ color: black;
+}
+.area-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A62639;
+    border-radius: 14px;
+    opacity: 0.8;
+}
+
+.area-title h2 {
+  margin-bottom: 0px;
+}
+
+.area-title-nav {
+  margin-left: 20px;
 }

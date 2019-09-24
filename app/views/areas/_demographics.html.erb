@@ -1,8 +1,9 @@
    <div class="area-show-container">
-    <div>
-      <%= render "shared/jump" %>
-    </div>
-   <h2 id="demographics">Demographics</h2>
+    <div class="area-title">
+    <%= render "shared/jump" %>
+    <h2 id="demographics">Demographics</h2>
+    <p></p>
+  </div>
     <div class="container-fluid area-back my-3">
       <div class="row">
         <div class="price-chart col-xs-12 col-md-6 col-lg-8">
@@ -22,7 +23,7 @@
 
       <div class="col-xs-12 col-md-6 col-lg-6">
           <%= pie_chart @area.demographics["data"]["social_grade"], title: "Social Grade breakdown"  %>
-          <p class="text-center"><%="Social Grade Definitions" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social GVrade Definitions"  %></p>
+          <p class="text-center"><%="Social Grade Definitions" %> <%= link_to "" , "https://www.ukgeographics.co.uk/blog/social-grade-a-b-c1-c2-d-e", target: "_blank", class: "fas fa-info-circle", data: { toggle: "tooltip"}, title: "Social Grade Definitions"  %></p>
       </div>
     </div>
  </div>

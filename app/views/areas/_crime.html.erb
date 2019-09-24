@@ -1,9 +1,10 @@
     <div class="area-show-container">
-      <div>
-        <%= render "shared/jump" %>
-      </div>
-      <h2 id="crime">Crime</h2>
-     <div class="container-fluid area-back">
+      <div class="area-title">
+    <%= render "shared/jump" %>
+    <h2 id="crime">Crime</h2>
+    <p></p>
+  </div>
+     <div class="container-fluid area-back my-3">
        <div class="row">
          <div class="price-chart col-xs-12 col-md-6 col-lg-8">
             <%= bar_chart @area.crime["types"], title: "Breakdown of crime by type",  xtitle: "per 1000 population", ytitle: "Type of Crime" %>

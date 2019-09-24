@@ -15,11 +15,11 @@ class AreasController < ApplicationController
 
      @markers = @schools.map do |school|
       results = Geocoder.search(school["postcode"])
-       { lat: results.first.coordinates[0],
-         lng: results.first.coordinates[1],
-         infoWindow: render_to_string(partial: "school_map", locals: { school: school }),
-         id: "test"
-       }
+      next if results.empty?
+      { lat: results.first.coordinates[0],
+        lng: results.first.coordinates[1],
+        infoWindow: render_to_string(partial: "school_map", locals: { school: school })
+      }
     end
   end
 
