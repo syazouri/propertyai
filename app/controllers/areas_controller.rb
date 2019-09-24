@@ -1,15 +1,14 @@
 class AreasController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_area, only: [:show, :edit, :update]
 
   def index
     @areas = Area.all
     # @area = Area.where(user_id: current_user.id).last.area
-
   end
 
   def show
-    @homes = House.where(area_id: @area)
+    @homes = House.where(area_id: @area).shuffle.take(3)
     @schools = @area["schools"]["data"]["state"]["nearest"]
 
 
