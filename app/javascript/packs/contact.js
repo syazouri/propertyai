@@ -13,21 +13,21 @@ const messageList = document.querySelector('#messages ul');
 const submit = document.querySelector("#submit_comment");
 
 const addMessageToFormUser = (message) => {
-  const newMessage = `<div class='user-message'>${message}<div>`;
+  const newMessage = `<div class='lhs-msg-hold'><p class='agent-message'>${message}</p></div>`;
 
   messageList.insertAdjacentHTML("afterbegin", newMessage)
 }
 
 const addMessageToFormAgent = (message) => {
-  const newMessage = `<div class='agent-message'>${message}</div>`;
+  const newMessage = `<div class='rhs-msg-hold'><p class='agent-message'>${message}</p></div>`;
   messageList.insertAdjacentHTML("afterbegin", newMessage)
 }
 
-const allMessages = ["Hello, there are you", "2"]
+const allMessages = ["Hello, there are you", "I see your interserted in this house, great choice ", "3", "4", "5", "6"]
 let messageCounter = 0
 
 const welcomeVisitor =()=> {
-  const yourName = (document.querySelector("#your-name").value)
+  // const yourName = (document.querySelector("#your-name").value)
   const yourMessage = (document.querySelector("#your-message").value)
   const myMessage = allMessages[messageCounter]
   messageCounter += 1
@@ -42,7 +42,7 @@ const talkingUser = () => {
       const userMessage = document.querySelector("#your-message");
       addMessageToFormUser(userMessage.value);
       userMessage.value=''
-      setTimeout(welcomeVisitor,8000)
+      setTimeout(welcomeVisitor,800)
     });
   }
 }

@@ -1,40 +1,34 @@
-<!-- this where the person books the home via the agent -->
-    <div class="container">
-      <div class="row justify-content-centre">
+<div class="container">
+    <div class="row justify-content-centre">
         <div class="col-6">
           <div class="card">
             <div class="card_head_chat">
-                <%= image_tag ("boris_paillard.png"), class: "avatar-bordered", alt: "avatar-bordered" %>
-                </p>Housing agent - Boris Paillard</p>
-                <div class="icon_chat_chat">
-                <i class="fas fa-phone"></i>
-                <i class="fas fa-camera"></i>
+             <%= image_tag ("boris_paillard.png"), class: "avatar-bordered", alt: "avatar-bordered" %>
+               </p>Housing agent - Boris Paillard</p>
+               <div class="icon_chat_chat">
+               <i class="fas fa-phone"></i>
+               <i class="fas fa-camera"></i>
                 <i class="far fa-question-circle"></i>
                 </div>
             </div>
-            <div class="card_body_chat1">
-            <form action="#" id="comment-form">
+            <div id="messages">
+              <ul class="message-list">
+              </ul>
+              <div class="card_body_chat">
+                <form action="#" id="comment-form">
                 <div class="form-group">
                 <label for="your-message">Your comment</label>
                 <textarea type="text" name="content" id="your-message" class="form-control" placeholder="Here is my message.."></textarea>
-                <label for="your-name">From</label>
-                <input type="text" name="content" id="your-name" class="form-control" placeholder="Bob">
                 </div>
-            </div>
-            <div class="card_footer_chat"></div>
+              <div class="card_footer_chat"></div>
               <input type="submit" value="Send" class="btn btn-primary" id="submit_comment">
-            </form>
-            <div id="messages">
-              <ul >
-                <li>A sample message (posted <span class="date">10 minutes ago</span>) by John</li>
-              </ul>
-              <button class="btn btn-danger" id="refresh">Refresh Chat</button>
-          </div>
+                </form>
         </div>
       </div>
     </div>
 
-
+              <!-- <label for="your-name">From</label>
+                <input type="text" name="content" id="your-name" class="form-control" placeholder="Bob"> -->
 
 
 
