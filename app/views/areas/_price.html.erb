@@ -5,51 +5,44 @@
     <p></p>
   </div>
 
-    <div class="container-fluid area-back my-3">
-      <div class="row">
-        <div class="price-chart col-xs-12 col-md-6 col-lg-8">
-            <p><%#ß="Average  price last 5 years in #{@area.name.capitalize}" %></p>
-            <%= area_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
-        </div>
+  <div class="container-fluid area-back my-3">
+    <div class="row">
+      <div class="price-chart col-xs-12 col-md-6 col-lg-8">
+        <p><%#ß="Average  price last 5 years in #{@area.name.capitalize}" %></p>
+        <%= area_chart @area["growth"]["data"], title: "Average property price last 5 years",  xtitle: "Year", ytitle: "Price (£)" %>
       </div>
     </div>
-
-
-<div class="container-fluid area-back my-3">
-  <div class="row">
-    <div class="price-chart col-xs-12 col-md-6 col-lg-8 my-3">
-      <p class="text-center"><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>
-  <% if @area.growth["data"].nil? %>
-  <p>No Data Available</p>
-  <% else %>
- <table>
-  <thead>
-    <tr>
-      <th>Year</th>
-      <th>% Change</th>
-    </tr>
-  </thead>
- <tbody>
-    <% @area.growth["data"].each do |growth| %>
-     <% if growth[2].nil? %>
-     <td><%= "#{growth[0]}:"%></td>
-     <td><%= "No Data"%></td>
-       <% else %>
-      <tr>
-        <td><%= "#{growth[0]}:"%></td>
-        <td><%= "#{growth[2]}" %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-</div>
-<% end %>
   </div>
-</div>
 
 
-
+  <div class="container-fluid area-back my-3">
+    <div class="row">
+      <div class="price-chart col-xs-12 col-md-6 col-lg-8 my-3">
+        <p class="text-center"><%= "Property % price change last 5 years in #{@area.name.capitalize}" %></p>
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>% Change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @area.growth["data"]&.each do |growth| %>
+              <% if growth[2].nil? %>
+                <td><%= "#{growth[0]}:"%></td>
+                <td><%= "No Data"%></td>
+              <% else %>
+                <tr>
+                  <td><%= "#{growth[0]}:"%></td>
+                  <td><%= "#{growth[2]}" %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
 

@@ -11,9 +11,7 @@ class AreasController < ApplicationController
   def show
     @homes = House.where(area_id: @area)
     @schools = @area["schools"]["data"]["state"]["nearest"]
-
-
-     @markers = @schools.map do |school|
+    @markers = @schools.map do |school|
       results = Geocoder.search(school["postcode"])
       next if results.empty?
       { lat: results.first.coordinates[0],
@@ -42,7 +40,7 @@ class AreasController < ApplicationController
   private
 
   def area_params
-    params.require(:area).permit(:name, :sold_price, :schools, :crime, :demographics, :price, :growth, :demand)
+    params.require(:area).permit(:name, :sold_price, :schools, :crime, :demographics, :price, :growth, :demand, :image)
   end
 
   def set_area

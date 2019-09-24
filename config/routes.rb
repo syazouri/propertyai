@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :areas, only: [:index, :show, :edit, :update] do
+  resources :areas, only: [:show] do
     resources :houses, only: [:index, :show] do
       get 'contact'
     end
