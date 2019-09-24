@@ -1,0 +1,23 @@
+<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> -->
+
+<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+    <ul class="navbar-nav area-title-nav">
+        <li class="nav-item dropdown">
+          <%= (link_to "", "#", class: "fas fa-bars", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+          <div class="dropdown-menu dropdown-menu-right jump-menu area-back" aria-labelledby="navbarDropdown" style="text-shadow: none;">
+            <p class="text-center">Jump to</p>
+             <%= link_to "Price", area_path(@area, :anchor => "price"), class: "dropdown-item" %>
+             <%= link_to "Demand", area_path(@area, :anchor => "demand"), class: "dropdown-item"  %>
+             <%= link_to "Crime", area_path(@area, :anchor => "crime"), class: "dropdown-item"  %>
+             <%= link_to "Schools", area_path(@area, :anchor => "schools"), class: "dropdown-item"  %>
+             <%= link_to "Demographics", area_path(@area, :anchor => "demographics"), class: "dropdown-item"   %>
+          </div>
+        </li>
+    </ul>
+  <!-- </div> -->
+<!-- </div> -->

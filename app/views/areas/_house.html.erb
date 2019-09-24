@@ -1,15 +1,25 @@
 <div class="area-sticky">
- <% @homes.each do |home| %>
-  <div class="card-area-home">
-  <%= image_tag "shoreditch/boxpark.jpg"%>
-  <div class="card-area-home-footer">
-    <div>
-      <%= @homes.count %>
-    <p><%= home.address %></p>
-    <p><%= home.postcode %></p>
-  </div>
-</div>
-</div>
-<% end %>
+    <% @homes.each do |home| %>
+      <div class="card-area-home-new house-card" style="margin: 32px;">
+        <%= image_tag "houses/#{home.photo}", class: "img" %><br>
+        <h7>£<%= number_with_delimiter(home.price)%></h7>
+        <p><%= home.address%></p>
+        <p>Bedrooms: <%= home.bedroom%></p>
+        <p>Bathroom: <%= home.bathroom%></p>
+        <h8><%= link_to 'See Property', area_house_path(home.area_id, home),class: "btn-ghost"%></h8>
+      </div>
+    <% end %>
 </div>
 
+ <%# @homes.each do |home| %>
+  <!-- <div class="card-area-home"> -->
+  <%#= image_tag "shoreditch/boxpark.jpg"%>
+  <!-- <div class="card-area-home-footer"> -->
+    <!-- <div> -->
+      <%#= @homes.count %>
+    <p><%#= home.address %></p>
+    <p><%#= home.postcode %></p>
+ <!--  </div>
+</div>
+</div> -->
+<%# end %>
