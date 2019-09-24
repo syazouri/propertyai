@@ -1,5 +1,5 @@
-<div class="container house-description">
-  <h1 id="title">List of Properties</h1>
+<div class="container-fluid house-description">
+  <h1 id="title">List of Properties - <%=@area.name.upcase%></h1>
   <br>
 
   <!-- <input type=”text” name=”query” id=”query”> -->
@@ -24,10 +24,10 @@
     <% @houses.each do |house| %>
       <div class="house-card">
         <%= image_tag "houses/#{house.photo}", class: "img" %><br>
-        <h7>£<%= number_with_delimiter(house.price)%></h7>
-        <p><%= house.address%></p>
-        <p>Bedrooms: <%= house.bedroom%></p>
-        <p>Bathroom: <%= house.bathroom%></p>
+        <h7 class = house-price>£<%= number_with_delimiter(house.price)%></h7>
+        <p><i class="fas fa-map-marked-alt">&nbsp;</i><%= house.address%></p>
+        <p><i class="fas fa-bed">&nbsp;</i> <%= house.bedroom%></p>
+        <p><i class="fas fa-bath">&nbsp;</i> <%= house.bathroom%></p>
         <h8><%= link_to 'See Property', area_house_path(house.area_id, house),class: "btn-ghost"%></h8>
       </div>
     <% end %>
@@ -39,6 +39,9 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
+<div class="btn btn-main">
+      <%= link_to'Back to Areas', search_path(current_user.searches.last), class: "button" %>
+      </div>
 </div>
 
 
