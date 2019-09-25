@@ -1,7 +1,11 @@
 .area-banner {
   color: white;
   background-size: cover;
-  padding: 150px 0px;
+  object-fit: cover;
+  padding: 200px 0px;
+}
+
+.area-banner background-image {
 }
 
 .area-banner p {
