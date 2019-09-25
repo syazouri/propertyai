@@ -217,6 +217,7 @@ h8 {
   width: 90%;
   align-content: right;
   text-align: center;
+  margin-left: 60px;
 }
 
 .special-card {
@@ -234,4 +235,12 @@ h8 {
     box-shadow: 5px 5px 5px #EAEAEA;
     color: #333333;
     background: #F7F7F7;
+}
+
+.area-font {
+  color: #000000;
+}
+
+.area-font:hover{
+    text-decoration: none;
 }

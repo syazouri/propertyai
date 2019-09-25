@@ -10,9 +10,9 @@
         <%= image_tag photos.pop %>
           <%= link_to area_path(area) do  %>
             <div class="card-area-footer">
-              <p><%= area.name.upcase %></p>
+              <h5 class = "area-font"><%= area.name.upcase %></h5>
               <br>
-              <p>Average house price: £<%= number_with_delimiter(area.sold_price["data"]["average"]) %></p>
+              <h6 class = "area-font">Average house price: £<%= number_with_delimiter(area.sold_price["data"]["average"]) %></h6>
             </div>
           <% end %>
         </div>
