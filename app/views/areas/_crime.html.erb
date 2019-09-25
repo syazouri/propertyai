@@ -1,5 +1,5 @@
-    <div class="area-show-container">
-      <div class="area-title">
+    <div class="area-show-container container-fluid">
+      <div class="contailner-fluid area-title">
     <%= render "shared/jump" %>
     <h2 id="crime">Crime</h2>
     <p></p>
@@ -18,10 +18,10 @@
 
     <div class="container-fluid area-back my-3 ">
       <div class="row">
-        <div class="price-chart col-xs-12 col-md-6 col-lg-8">
-          <p class="text-center"><%= "Crime Overview for #{@area.name.capitalize}" %></p>
-          <p><%= "Crime Rating: #{@area.crime['crime_rating']}" %> <%= "Crime Rating: #{@area.crime['crime_rating']}" %></p><br>
-          <p><%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %></p><br>
+        <div class="text-center price-chart col-xs-12 col-md-6 col-lg-6">
+          <h5 class="my-3" style="font-weight:bolder;"><%= "Crime Overview for #{@area.name.capitalize}" %></h5>
+          <p><%= "Crime Rating: #{@area.crime['crime_rating']}" %> </p>
+          <p><%= "Number of crimes in last 12 months: #{@area.crime['crimes_last_12m']}" %></p>
           <p><%= "Number of crimes crimes per thousand: #{@area.crime['crimes_per_thousand']}" %></p>
         </div>
       </div>
@@ -29,15 +29,12 @@
 
     <div class="container-fluid area-back my-3 ">
       <div class="row">
-        <div class=" price-chart col-xs-12 col-md-6 col-lg-6">
-        <p class="text-center"><%= "Crime Observations for #{@area.name.capitalize}" %></p>
-        <ul>
-        <% @area.crime["observations"].each do |ob| %>
-        <li> <%= ob %></li>
-        <% end %>
-        </ul>
+        <div class=" text-center price-chart col-xs-12 col-md-6 col-lg-8">
+          <h5 class="my-3" style="font-weight:bolder;"><%= "Crime Observations for #{@area.name.capitalize}" %></h5>
+          <p><%= @area.crime["observations"][0] %></p>
+          <p><%= @area.crime["observations"][1] %></p>
+          <p><%= @area.crime["observations"][2] %></p>
         </div>
       </div>
     </div>
-
-    </div>
+  </div>

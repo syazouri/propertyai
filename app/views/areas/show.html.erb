@@ -1,6 +1,7 @@
 <%= javascript_pack_tag "chart" %>
 
-
+<%# if @area.image.nil? %>
+<%# @area.image =  image_path "shoreditch/cam.jpg"  %>
   <div class="area-banner" style="background-image: url(<%= image_path @area.image %>)">
     <div class="container-fluid">
       <h1 class="text-center"><%= @area.name.upcase %></h1>
