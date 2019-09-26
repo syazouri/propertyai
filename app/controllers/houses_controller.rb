@@ -28,9 +28,8 @@ class HousesController < ApplicationController
   end
 
   def show
-    @area = Area.all
+    @area = Area.find(params[:area_id])
     @house = House.find(params[:id])
-
     house_coordinates = {
       lat: @house.latitude,
       lng: @house.longitude,
