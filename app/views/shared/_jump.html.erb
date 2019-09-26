@@ -11,6 +11,7 @@
           <%= (link_to "", "#", class: "fas fa-bars", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
           <div class="dropdown-menu dropdown-menu-right jump-menu area-back" aria-labelledby="navbarDropdown" style="text-shadow: none;">
             <p class="text-center">Jump to</p>
+            <%= link_to'Search Result', search_path(current_user.searches.last), class: "dropdown-item" %>
              <%= link_to "Price", area_path(@area, :anchor => "price"), class: "dropdown-item" %>
              <%= link_to "Demand", area_path(@area, :anchor => "demand"), class: "dropdown-item"  %>
              <%= link_to "Crime", area_path(@area, :anchor => "crime"), class: "dropdown-item"  %>

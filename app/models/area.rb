@@ -8,4 +8,8 @@ class Area < ApplicationRecord
   def commute_time
     CommuterTime.new({startcoord: [self.lat, self.lng]}).cityMapper_api
   end
+
+  # def photo_safe
+
+  # end
 end
