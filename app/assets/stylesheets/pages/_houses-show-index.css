@@ -246,4 +246,11 @@ h8 {
 }
 
 
-
+.house-title h1, h2 {
+  font-weight: bolder;
+  background-color: #A62639;
+  padding: 8px 24px;
+  color: white;
+  border-radius: 14px;
+  text-shadow: 2px 2px 4px #000000;
+}
