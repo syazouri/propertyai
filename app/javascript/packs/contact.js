@@ -23,7 +23,7 @@ const addMessageToFormAgent = (message) => {
   messageList.insertAdjacentHTML("afterbegin", newMessage)
 }
 
-const allMessages = ["Hello, there are you", "I see your interserted in this house, great choice", "when like to view the property", "great, im free on that day", "see your email form confirmation", "6"]
+const allMessages = ["Hello! Great, nice choice of house", "When would you like to book a viewing?", "Yes, we have 10am or 2pm. Which time works for you?", "Great! You're now booked on to view this property at 10am next Saturday. We will be sending you an email with more information shortly.", "Bye, see you soon."]
 let messageCounter = 0
 
 const welcomeVisitor =()=> {
