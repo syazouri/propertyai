@@ -21,6 +21,7 @@ gem 'geocoder'
 gem "chartkick"
 gem 'groupdate'
 gem 'cloudinary', '~> 1.9.1'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -31,7 +32,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
-  gem 'faker'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
   gem 'better_errors'
