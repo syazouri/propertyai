@@ -32,7 +32,9 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <%= yield %>
+    <div class="min-height">
+      <%= yield %>
+    </div>
     <%= javascript_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
 
