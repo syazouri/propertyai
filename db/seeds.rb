@@ -52,31 +52,31 @@ areas = [
 
 areas.each do |area|
   p "Creating area"
-  crime_url = "https://api.propertydata.co.uk/crime?key=L3DKUYCKHI&postcode=#{area[:postcode]}"
+  crime_url = "https://api.propertydata.co.uk/crime?key=#{ENV['DATA']}&postcode=#{area[:postcode]}"
   crime = JSON.parse(open(crime_url).read)
   sleep(3)
 
-  school_url = "https://api.propertydata.co.uk/schools?key=L3DKUYCKHI&postcode=#{area[:postcode]}"
+  school_url = "https://api.propertydata.co.uk/schools?key=#{ENV['DATA']}&postcode=#{area[:postcode]}"
   school = JSON.parse(open(school_url).read)
   sleep(3)
 
-  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=L3DKUYCKHI&postcode=#{area[:postcode]}&type=flat&max_age=12"
+  sold_price_url = "https://api.propertydata.co.uk/sold-prices?key=#{ENV['DATA']}&postcode=#{area[:postcode]}&type=flat&max_age=12"
   sold_price = JSON.parse(open(sold_price_url).read)
   sleep(3)
 
-  demographics_url = "https://api.propertydata.co.uk/demographics?key=L3DKUYCKHI&postcode=W14=L3DKUYCKHI&postcode=#{area[:postcode]}"
+  demographics_url = "https://api.propertydata.co.uk/demographics?key=#{ENV['DATA']}&postcode=W14=#{ENV['DATA']}&postcode=#{area[:postcode]}"
   demographics = JSON.parse(open(demographics_url).read)
   sleep(3)
 
-  price_url = "https://api.propertydata.co.uk/prices?key=L3DKUYCKHI&postcode=#{area[:postcode]}&bedrooms=2"
+  price_url = "https://api.propertydata.co.uk/prices?key=#{ENV['DATA']}&postcode=#{area[:postcode]}&bedrooms=2"
   price = JSON.parse(open(price_url).read)
   sleep(3)
 
-  growth_url = "https://api.propertydata.co.uk/growth?key=L3DKUYCKHI&postcode=#{area[:postcode]}"
+  growth_url = "https://api.propertydata.co.uk/growth?key=#{ENV['DATA']}&postcode=#{area[:postcode]}"
   growth = JSON.parse(open(growth_url).read)
   sleep(3)
 
-  demand_url = "https://api.propertydata.co.uk/demand?key=L3DKUYCKHI&postcode=#{area[:postcode]}"
+  demand_url = "https://api.propertydata.co.uk/demand?key=#{ENV['DATA']}&postcode=#{area[:postcode]}"
   demand = JSON.parse(open(demand_url).read)
   sleep(3)
 
