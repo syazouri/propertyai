@@ -77,6 +77,11 @@ ul {
   list-style-type: none;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
 .list_item{
   margin: 20px;
 }
@@ -93,6 +98,5 @@ ul {
 }
 
 .radius-left {
-  border-top-left-radius: 14px;
-  border-bottom-left-radius: 14px;
+  border-radius: 14px;
 }
