@@ -3,6 +3,9 @@ body {
 background-image: image-url("brick.jpg");
 }
 
+.min-height {
+  min-height: calc(100vh - 231px);
+}
 .banner {
   background: transparent;
   background-size: cover;
