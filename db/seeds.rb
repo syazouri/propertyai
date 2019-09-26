@@ -22,7 +22,7 @@ puts 'Creating Users, Areas and Houses'
 # images here
 
 areas = [
-  { name: 'tower hamlets',
+  { name: 'tower_hamlets',
     postcode: 'E14 4QJ'
     },
   # average_deposit => 105051},
@@ -90,9 +90,12 @@ areas.each do |area|
     demand: demand,
     growth: growth,
     # average_deposit: AVERAGE_DEPOSIT[i],
-    area_postcode: area[:postcode]
+    area_postcode: area[:postcode],
+    image: "shoreditch/#{area[:name]}.jpg"
   )
   area.save!
+
+
 
   price = Price.new(
     area_id: area.id,
