@@ -32,7 +32,7 @@ function calculateMortgage() {
         const result2 = num1 * 4.5;
         const btn = document.getElementById("after");
         const html = `<p><br>We estimate you can borrow £<span id = "result1">${result1}</span> - £<span id = "result2">${result2}</span><br>
-        </p><div class="form-inputs"><input name="search[deposit]" type="text" placeholder="Enter your deposit amount" id="deposit-amount"></div>`;
+        </p><div class="form-inputs special-input"><input class="form-control" name="search[deposit]" type="text" placeholder="Enter your deposit amount" id="deposit-amount"></div>`;
         btn.insertAdjacentHTML("afterbegin", html);
         const maxMortgage = document.getElementById("max-mortgage");
         maxMortgage.value = result2;

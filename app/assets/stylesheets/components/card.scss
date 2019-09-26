@@ -18,6 +18,11 @@ input.form-control:focus {
    border-radius: 14px;
 }
 
+.special-input {
+  width: 300px;
+  border-bottom: solid 2px black;
+}
+
 .card {
   background: rgba(220, 227, 247, 0.6);
   background-size: cover;
