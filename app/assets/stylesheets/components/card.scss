@@ -4,6 +4,12 @@
   padding-bottom: 20px;
 }
 
+input.form-control:focus {
+  &:focus {
+    border: none;
+  }
+}
+
 .cards-base {
   margin: 30px;
   display: grid;
@@ -13,7 +19,7 @@
 }
 
 .card {
-   background: rgba(220, 227, 247, 0.6);
+  background: rgba(220, 227, 247, 0.6);
   background-size: cover;
   background-position: center;
   text-align: center;
