@@ -4,6 +4,12 @@
   padding-bottom: 20px;
 }
 
+input.form-control:focus {
+  &:focus {
+    border: none;
+  }
+}
+
 .cards-base {
   margin: 30px;
   display: grid;
@@ -12,8 +18,13 @@
    border-radius: 14px;
 }
 
+.special-input {
+  width: 300px;
+  border-bottom: solid 2px black;
+}
+
 .card {
-   background: rgba(220, 227, 247, 0.6);
+  background: rgba(220, 227, 247, 0.6);
   background-size: cover;
   background-position: center;
   text-align: center;

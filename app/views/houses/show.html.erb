@@ -1,7 +1,10 @@
 <div class="container-fluid house-description">
-  <h1 id="title">Property Details</h1>
+  <div class="contailner-fluid house-title ">
+    <h1 id="title">Property Details</h1>
+  </div>
+  <!-- <h1 id="title">Property Details</h1> -->
   <br>
-<h2 class = house-price>£<%= number_with_delimiter(@house.price)%></h2>
+<!-- <h2 class = house-price>£<%= number_with_delimiter(@house.price)%></h2> -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -38,7 +41,7 @@
     <div class="details-container">
       <div class="house-description-top left-card">
         <ul>
-          <h2 class = house-price><i class="fas fa-pound-sign">&nbsp;</i><%= number_with_delimiter(@house.price)%></h2>
+          <h3 class = house-price style=""><i class="fas fa-pound-sign">&nbsp;</i><%= number_with_delimiter(@house.price)%></h3>
           <p><i class="fas fa-map-marked-alt">&nbsp;</i>Address: <%= @house.address%></p>
           <!-- <p>Postcode: <%= @house.postcode %></p> -->
           <p><i class="fas fa-bed">&nbsp;</i>Bedrooms: <%= @house.bedroom %></p>
@@ -49,13 +52,14 @@
       </div>
     <div class="house-description-top px-5">
       <% descriptions = ["A lovely newly refurbished apartment with communal gardens on the 1st floor of this beautiful development with off street parking for 1 car. Wood floors throughout and plenty of storage. Well located for access to the varied shops, cafes, restaurants and transport links.", "A superb apartment occupying the raised ground floor of an impressive residence enviably located in the heart of the city. This outstanding home, with high ceilings and large windows, offers flexible and well-proportioned living space centred around a large hallway, a separate kitchen, and a spacious master bedroom. This residence is located in a highly desirable residential tree lined road which is centrally located for the abundance of excellent schools, the numerous restaurants, pavement cafes and boutiques.", "A well proportioned flat located within a small purpose built block, only minutes from the amenities of the area and adjacent to the tube. The apartment is well presented with good sized bedrooms, a modern fully fitted kitchen, and a large reception area leading to the private balcony overlooking the beautifully maintained communal gardens."] %>
-      <h2> Description </h2><p><%= descriptions.sample %></p>
+      <div class="contailner-fluid house-title my-3">
+      <h2> Description </h2></div><p><%= descriptions.sample %></p>
       <div class="btn btn-main">
   <%= link_to'Bookmark Property', new_search_path, class: "button" %>
   </div>
     </div>
     </div>
-  <div class="house-description"><h2> Points of Interest </h2>
+  <div class="house-description"><h2 class="house-title"> Points of Interest </h2>
     <div class = "map-container"
       id="map"
       style="width: 100%;
