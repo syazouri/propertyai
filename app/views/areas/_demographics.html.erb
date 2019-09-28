@@ -30,6 +30,9 @@
   </div>
      <div class="btn btn-main">
         <%= link_to'Back to Areas', search_path(current_user.searches.last), class: "button" %>
-  </div>
+    </div>
+    <div class="btn btn-main">
+        <%= link_to'View All Properties', area_houses_path(@area), class: "button" %>
+    </div>
 </div>
 
